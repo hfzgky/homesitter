@@ -45,6 +45,7 @@
             android:background="#00FFFFFF"
             android:onClick="onClickClip"
             android:scaleType="centerInside"
+            android:tint="#80FFFFFF"
             app:srcCompat="@drawable/clip" />
 
         <Space
@@ -60,7 +61,7 @@
             android:background="#00FFFFFF"
             android:onClick="onClickFriends"
             android:scaleType="centerInside"
-            android:tint="#000000"
+            android:tint="#80A1A1A1"
             app:srcCompat="@drawable/list" />
 
         <Space
@@ -76,6 +77,7 @@
             android:background="#00FFFFFF"
             android:onClick="onClickPreference"
             android:scaleType="centerInside"
+            android:tint="#80FFFFFF"
             app:srcCompat="@drawable/settings" />
 
         <Space
