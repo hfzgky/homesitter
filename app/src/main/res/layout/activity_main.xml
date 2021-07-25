@@ -7,6 +7,7 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="410dp"
         android:layout_height="96dp"
         android:orientation="horizontal"
@@ -42,6 +43,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#00FFFFFF"
+            android:onClick="onClickClip"
             android:scaleType="centerInside"
             android:tint="#80FFFFFF"
             app:srcCompat="@drawable/clip" />
@@ -57,6 +59,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#00FFFFFF"
+            android:onClick="onClickFriends"
             android:scaleType="centerInside"
             android:tint="#80A1A1A1"
             app:srcCompat="@drawable/list" />
@@ -72,6 +75,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#00FFFFFF"
+            android:onClick="onClickPreference"
             android:scaleType="centerInside"
             android:tint="#80FFFFFF"
             app:srcCompat="@drawable/settings" />
@@ -82,4 +86,32 @@
             android:layout_weight="1" />
 
     </LinearLayout>
+
+
+    //https://1d1cblog.tistory.com/21 - 영상 스트리밍 방법 참고
+
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="350dp"
+        android:layout_height="196dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.528" />
+
+    <TextView
+        android:id="@+id/textTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="현재시간"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/webView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.77"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
