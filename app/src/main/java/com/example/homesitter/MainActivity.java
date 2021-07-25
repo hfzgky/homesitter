@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         tvDate = (TextView) findViewById(R.id.textTime);
         tvDate.setText(getTime());
     }
+
     private String getTime() {
         long now = System.currentTimeMillis();
         Date date = new Date(now);
