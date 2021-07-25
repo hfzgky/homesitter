@@ -6,7 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".ClipActivity">
 
+
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="410dp"
         android:layout_height="96dp"
         android:orientation="horizontal"
@@ -28,6 +30,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#00FFFFFF"
+            android:onClick="onClickMain"
             android:scaleType="centerInside"
             app:srcCompat="@drawable/main" />
 
@@ -56,6 +59,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#00FFFFFF"
+            android:onClick="onClickFriends"
             android:scaleType="centerInside"
             android:tint="#000000"
             app:srcCompat="@drawable/list" />
@@ -71,6 +75,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#00FFFFFF"
+            android:onClick="onClickPreference"
             android:scaleType="centerInside"
             app:srcCompat="@drawable/settings" />
 
@@ -80,6 +85,5 @@
             android:layout_weight="1" />
 
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
