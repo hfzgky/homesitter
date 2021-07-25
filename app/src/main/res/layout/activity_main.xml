@@ -88,16 +88,18 @@
     </LinearLayout>
 
 
+    //https://1d1cblog.tistory.com/21 - 영상 스트리밍 방법 참고
+
     <WebView
         android:id="@+id/webView"
         android:layout_width="350dp"
         android:layout_height="196dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    //https://1d1cblog.tistory.com/21 - 영상 스트리밍 방법 참고
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.528" />
 
     <TextView
         android:id="@+id/textTime"
