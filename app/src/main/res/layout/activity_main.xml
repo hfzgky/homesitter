@@ -43,6 +43,7 @@
             android:layout_weight="1"
             android:background="#00FFFFFF"
             android:scaleType="centerInside"
+            android:tint="#80FFFFFF"
             app:srcCompat="@drawable/clip" />
 
         <Space
@@ -57,7 +58,7 @@
             android:layout_weight="1"
             android:background="#00FFFFFF"
             android:scaleType="centerInside"
-            android:tint="#000000"
+            android:tint="#80A1A1A1"
             app:srcCompat="@drawable/list" />
 
         <Space
@@ -72,6 +73,7 @@
             android:layout_weight="1"
             android:background="#00FFFFFF"
             android:scaleType="centerInside"
+            android:tint="#80FFFFFF"
             app:srcCompat="@drawable/settings" />
 
         <Space
