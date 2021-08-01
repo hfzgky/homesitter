@@ -28,7 +28,7 @@ public class ClipActivity extends AppCompatActivity {
     }
 
     public void onClickPreference(View view) {
-        Intent intent = new Intent(this, Preferences.class);
+        Intent intent = new Intent(this, SettingActivity.class);
         startActivity(intent);
         finish();
     }
