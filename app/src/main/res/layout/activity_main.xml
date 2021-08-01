@@ -88,7 +88,6 @@
     </LinearLayout>
 
 
-    //https://1d1cblog.tistory.com/21 - 영상 스트리밍 방법 참고
 
     <WebView
         android:id="@+id/webView"
