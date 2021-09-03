@@ -44,9 +44,11 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
-    public void onClickPreference(View view) {
+  /*  public void onClickPreference(View view) {
         Intent intent = new Intent(this, SettingPreferenceFragment.class);
         startActivity(intent);
         finish();
-    }
+    } */
+
+
 }

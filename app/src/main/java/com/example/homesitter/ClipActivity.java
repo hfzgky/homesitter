@@ -27,10 +27,10 @@ public class ClipActivity extends AppCompatActivity {
         finish();
     }
 
-    public void onClickPreference(View view) {
+   /* public void onClickPreference(View view) {
         Intent intent = new Intent(this, SettingActivity.class);
         startActivity(intent);
         finish();
-    }
+    } */
 
 }
