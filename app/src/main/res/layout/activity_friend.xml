@@ -133,12 +133,25 @@
                             android:hint="이름을 입력하세요."
                             android:inputType="textPersonName" />
 
-                        <ImageButton
-                            android:id="@+id/imageButtonP1"
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            app:srcCompat="@android:drawable/ic_menu_delete" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <ImageButton
+                                android:id="@+id/imageButtonS1"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@android:drawable/ic_menu_save" />
+
+                            <ImageButton
+                                android:id="@+id/imageButtonP1"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@android:drawable/ic_menu_delete" />
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -163,12 +176,25 @@
                             android:hint="이름을 입력하세요."
                             android:inputType="textPersonName" />
 
-                        <ImageButton
-                            android:id="@+id/imageButtonP2"
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            app:srcCompat="@android:drawable/ic_menu_delete" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <ImageButton
+                                android:id="@+id/imageButtonS2"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@android:drawable/ic_menu_save" />
+
+                            <ImageButton
+                                android:id="@+id/imageButtonT2"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@android:drawable/ic_menu_delete" />
+                        </LinearLayout>
 
                     </LinearLayout>
                 </LinearLayout>
@@ -199,12 +225,25 @@
                             android:hint="이름을 입력하세요."
                             android:inputType="textPersonName" />
 
-                        <ImageButton
-                            android:id="@+id/imageButtonP3"
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            app:srcCompat="@android:drawable/ic_menu_delete" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <ImageButton
+                                android:id="@+id/imageButtonS3"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@android:drawable/ic_menu_save" />
+
+                            <ImageButton
+                                android:id="@+id/imageButtonT3"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@android:drawable/ic_menu_delete" />
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -229,12 +268,25 @@
                             android:hint="이름을 입력하세요."
                             android:inputType="textPersonName" />
 
-                        <ImageButton
-                            android:id="@+id/imageButtonP4"
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            app:srcCompat="@android:drawable/ic_menu_delete" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <ImageButton
+                                android:id="@+id/imageButtonS4"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@android:drawable/ic_menu_save" />
+
+                            <ImageButton
+                                android:id="@+id/imageButtonT4"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@android:drawable/ic_menu_delete" />
+                        </LinearLayout>
 
                     </LinearLayout>
                 </LinearLayout>
@@ -265,12 +317,25 @@
                             android:hint="이름을 입력하세요."
                             android:inputType="textPersonName" />
 
-                        <ImageButton
-                            android:id="@+id/imageButtonP5"
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            app:srcCompat="@android:drawable/ic_menu_delete" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <ImageButton
+                                android:id="@+id/imageButtonS5"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@android:drawable/ic_menu_save" />
+
+                            <ImageButton
+                                android:id="@+id/imageButtonT5"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@android:drawable/ic_menu_delete" />
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -295,12 +360,25 @@
                             android:hint="이름을 입력하세요."
                             android:inputType="textPersonName" />
 
-                        <ImageButton
-                            android:id="@+id/imageButtonP6"
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            app:srcCompat="@android:drawable/ic_menu_delete" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <ImageButton
+                                android:id="@+id/imageButtonS6"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@android:drawable/ic_menu_save" />
+
+                            <ImageButton
+                                android:id="@+id/imageButtonT6"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@android:drawable/ic_menu_delete" />
+                        </LinearLayout>
 
                     </LinearLayout>
                 </LinearLayout>
