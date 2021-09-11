@@ -1,7 +1,6 @@
 package com.example.homesitter;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.preference.Preference;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,10 +26,10 @@ public class FriendActivity extends AppCompatActivity {
         finish();
     }
 
-  /*  public void onClickPreference(View view) {
-        Intent intent = new Intent(this, SettingActivity.class);
+    public void onClickPreference(View view) {
+        Intent intent = new Intent(this, PreferenceScreen.class);
         startActivity(intent);
         finish();
-    } */
+    }
 
 }

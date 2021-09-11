@@ -3,6 +3,7 @@
     package="com.example.homesitter">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -13,6 +14,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".FriendActivity" />
         <activity android:name=".ClipActivity" />
+        <activity android:name=".PreferenceScreen" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

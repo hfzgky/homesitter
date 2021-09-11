@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="alert"
+        android:title="알림" />
+
+    <ListPreference
+        android:entries="@array/reply_entries"
+        android:entryValues="@array/reply_values"
+        android:key="time"
+        android:dependency="alert"
+        android:title="시간 설정"
+        android:summary="외부인이 설정한 시간을 초과해 머무르는 경우 알림을 보냅니다." />
+
+    <Preference
+        android:title="A/S 안내">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="http://www.naver.com"/>
+    </Preference>
+
+</PreferenceScreen>

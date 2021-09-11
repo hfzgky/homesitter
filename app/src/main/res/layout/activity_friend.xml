@@ -379,7 +379,6 @@
                                 android:layout_weight="1"
                                 app:srcCompat="@android:drawable/ic_menu_delete" />
                         </LinearLayout>
-
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>

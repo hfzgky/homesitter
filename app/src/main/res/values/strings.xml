@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">Homesitter</string>
     <string name="title_activity_settings">SettingsActivity</string>
-    <string name="as">보증 기간 이내 무상</string>
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
     <string name="sync_header">Sync</string>
