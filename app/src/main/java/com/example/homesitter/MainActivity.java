@@ -8,6 +8,8 @@ import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.os.SystemClock;
 import android.view.Gravity;
 import android.view.View;
@@ -19,19 +21,96 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class MainActivity extends AppCompatActivity implements Runnable{
-    private Thread mWorker = null;
+public class MainActivity extends AppCompatActivity{
+/*    private Thread mWorker = null;
     private LinearLayout mViewLayout= null;
     private TextView mTimeView = null;
     private TextView mDayView = null;
-    private boolean mRun = false;
+    TextView clockTextView ;
+    private boolean mRun = false;   */
+    private TextView mDayView;
+    private TextView mTimeView;
+    private static Handler mHandler ;
+
+    public void onClickClip(View view) {
+        Intent intent = new Intent(this, ClipActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void onClickFriends(View view) {
+        Intent intent = new Intent(this, FriendActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void onClickCall(View view) {
+        Intent tt = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + 112));
+        startActivity(tt);
+    }
+
+    public void onClickPreference(View view) {
+        Intent intent = new Intent(this, PreferenceScreen.class);
+        startActivity(intent);
+        finish();
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        mHandler = new Handler() {
+            @Override
+            public void handleMessage(Message msg) {
+                Calendar cal = Calendar.getInstance() ;
+                int yy = cal.get(Calendar.YEAR);
+                int mm = cal.get(Calendar.MONTH)+1;
+                int dd = cal.get(Calendar.DAY_OF_MONTH);
+                int h = cal.get(Calendar.HOUR_OF_DAY);
+                int m = cal.get(Calendar.MINUTE);
+                int s = cal.get(Calendar.SECOND);
+
+                mDayView = (TextView)findViewById(R.id.day_view);
+                mDayView.setGravity(Gravity.BOTTOM);
+                mDayView.setTextSize(18);
+                mDayView.setTextColor(Color.BLACK);
+                mDayView.setText(String.format(""));
+
+                mTimeView = (TextView)findViewById(R.id.time_view);
+                mTimeView.setTextSize(18);
+                mTimeView.setTextColor(Color.BLACK);
+                mTimeView.setText(String.format(""));
+
+                mDayView.setText(String.format("%04d-%02d-%02d",yy,mm,dd));
+                mTimeView.setText(String.format("%02d:%02d:%02d",h,m,s));
+            }
+        } ;
+
+        class NewRunnable implements Runnable {
+            @Override
+            public void run() {
+                while (true) {
+
+                    try {
+                        Thread.sleep(1000);
+                    } catch (Exception e) {
+                        e.printStackTrace() ;
+                    }
+
+                    mHandler.sendEmptyMessage(0) ;
+                }
+            }
+        }
+
+        NewRunnable nr = new NewRunnable() ;
+        Thread t = new Thread(nr) ;
+        t.start() ;
+    }
+
+
+/*        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         mViewLayout = (LinearLayout) findViewById(R.id.view_layout);
@@ -101,8 +180,8 @@ public class MainActivity extends AppCompatActivity implements Runnable{
             int m = calendar.get(Calendar.MINUTE);
             int s = calendar.get(Calendar.SECOND);
 
-//            mDayView.setText(String.format("%04d-%02d-%02d",yy,mm,dd));
-//            mTimeView.setText(String.format("%02d:%02d:%02d",h,m,s));
+            mDayView.setText(String.format("%04d-%02d-%02d",yy,mm,dd));
+            mTimeView.setText(String.format("%02d:%02d:%02d",h,m,s));
 
             wait(200);
         }
@@ -110,29 +189,6 @@ public class MainActivity extends AppCompatActivity implements Runnable{
 
     private void wait(int ms) {
         SystemClock.sleep(ms);
-    }
-
-    public void onClickClip(View view) {
-        Intent intent = new Intent(this, ClipActivity.class);
-        startActivity(intent);
-        finish();
-    }
-
-    public void onClickFriends(View view) {
-        Intent intent = new Intent(this, FriendActivity.class);
-        startActivity(intent);
-        finish();
-    }
-
-    public void onClickCall(View view) {
-        Intent tt = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + 112));
-        startActivity(tt);
-    }
-
-    public void onClickPreference(View view) {
-        Intent intent = new Intent(this, PreferenceScreen.class);
-        startActivity(intent);
-        finish();
-    }
+    }           */
 
 }
