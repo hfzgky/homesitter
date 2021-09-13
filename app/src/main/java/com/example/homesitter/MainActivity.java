@@ -1,8 +1,10 @@
 package com.example.homesitter;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.Preference;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
@@ -30,7 +32,7 @@ public class MainActivity extends AppCompatActivity{
     private boolean mRun = false;   */
     private TextView mDayView;
     private TextView mTimeView;
-    private static Handler mHandler ;
+//    private Handler mHandler ;
 
     public void onClickClip(View view) {
         Intent intent = new Intent(this, ClipActivity.class);
@@ -61,9 +63,10 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mHandler = new Handler() {
+        Handler mHandler = new Handler(new Handler.Callback() {
+            @SuppressLint("DefaultLocale")
             @Override
-            public void handleMessage(Message msg) {
+            public boolean handleMessage(Message msg) {
                 Calendar cal = Calendar.getInstance() ;
                 int yy = cal.get(Calendar.YEAR);
                 int mm = cal.get(Calendar.MONTH)+1;
@@ -85,8 +88,10 @@ public class MainActivity extends AppCompatActivity{
 
                 mDayView.setText(String.format("%04d-%02d-%02d",yy,mm,dd));
                 mTimeView.setText(String.format("%02d:%02d:%02d",h,m,s));
+
+                return true;
             }
-        } ;
+        }) ;
 
         class NewRunnable implements Runnable {
             @Override
