@@ -5,9 +5,11 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.preference.Preference;
+import androidx.room.Room;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -22,6 +24,7 @@ import android.os.SystemClock;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,6 +32,7 @@ import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.jar.Attributes;
 
 public class MainActivity extends AppCompatActivity{
 /*    private Thread mWorker = null;
@@ -40,6 +44,8 @@ public class MainActivity extends AppCompatActivity{
     private TextView mDayView;
     private TextView mTimeView;
 //    private Handler mHandler ;
+
+
 
     public void onClickClip(View view) {
         Intent intent = new Intent(this, ClipActivity.class);
@@ -199,8 +205,9 @@ public class MainActivity extends AppCompatActivity{
         NewRunnable nr = new NewRunnable() ;
         Thread t = new Thread(nr) ;
         t.start() ;
-    }
 
+
+    }
 
 /*        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
