@@ -64,8 +64,8 @@
                 android:onClick="onClickFriends"
                 android:padding="15dp"
                 android:scaleType="centerInside"
-                android:tint="#000000"
-                app:srcCompat="@drawable/list" />
+                app:srcCompat="@drawable/list"
+                app:tint="#000000" />
 
             <ImageButton
                 android:id="@+id/imageButtonSettings"

@@ -28,8 +28,8 @@ public class ClipActivity extends AppCompatActivity {
 
    public void onClickPreference(View view) {
         Intent intent = new Intent(this, PreferenceScreen.class);
-        startActivity(intent);
-        finish();
+        intent.putExtra("item", -1);
+        startActivityForResult(intent, 200);
     }
 
 }
