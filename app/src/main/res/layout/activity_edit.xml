@@ -31,7 +31,7 @@
             android:layout_gravity="center"
             android:layout_marginBottom="50dp"
             android:scaleType="fitCenter"
-            android:background="#fff"
+            android:background="#00FFFFFF"
             app:srcCompat="@drawable/gallery" />
 
         <EditText
@@ -57,19 +57,19 @@
     </LinearLayout>
 
     <ImageButton
-        android:id="@+id/buttonCancel"
+        android:id="@+id/buttonBack"
         android:layout_width="41dp"
         android:layout_height="37dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:background="#fff"
+        android:background="#00FFFFFF"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.022"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.342"
+        app:layout_constraintVertical_bias="0.285"
         app:srcCompat="@drawable/back" />
 
     <ImageView
@@ -79,7 +79,7 @@
         app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.948"
-        app:layout_constraintStart_toEndOf="@+id/buttonCancel"
+        app:layout_constraintStart_toEndOf="@+id/buttonBack"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.34"
         app:srcCompat="@drawable/done" />
