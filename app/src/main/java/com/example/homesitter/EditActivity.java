@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,13 +16,15 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.io.InputStream;
 import java.util.HashMap;
 
 
 public class EditActivity extends AppCompatActivity {
     private EditText mEditName, mEditPhone;
+    private static final int REQUEST_CODE = 0;
     private int mItem = -1; //인덱스
-    ImageView imagePerson;
+    private ImageButton imgbtn;
 
 
     @SuppressLint("WrongViewCast")
@@ -29,6 +33,7 @@ public class EditActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
 
+        imgbtn = findViewById(R.id.imagePerson);
         mEditName = findViewById(R.id.editTextName);
         mEditPhone = findViewById(R.id.editTextPhone);
 
@@ -72,5 +77,41 @@ public class EditActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        imgbtn.setOnClickListener(new View.OnClickListener() { //갤러리 가기
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(intent, REQUEST_CODE);
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == REQUEST_CODE)
+        {
+            if(resultCode == RESULT_OK)
+            {
+                try {
+                    InputStream in = getContentResolver().openInputStream(data.getData());
+
+                    Bitmap img = BitmapFactory.decodeStream(in);
+                    in.close();
+
+                    imgbtn.setImageBitmap(img);
+                } catch (Exception e) {
+
+                }
+            }
+
+            else if(resultCode == RESULT_CANCELED) {
+                Toast.makeText(this, "사진 선택 취소", Toast.LENGTH_LONG).show();
+            }
+        }
     }
 }

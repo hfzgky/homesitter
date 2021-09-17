@@ -33,12 +33,12 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity{
-/*    private Thread mWorker = null;
-    private LinearLayout mViewLayout= null;
-    private TextView mTimeView = null;
-    private TextView mDayView = null;
-    TextView clockTextView ;
-    private boolean mRun = false;   */
+    /*    private Thread mWorker = null;
+        private LinearLayout mViewLayout= null;
+        private TextView mTimeView = null;
+        private TextView mDayView = null;
+        TextView clockTextView ;
+        private boolean mRun = false;   */
     private TextView mDayView;
     private TextView mTimeView;
 //    private Handler mHandler ;
