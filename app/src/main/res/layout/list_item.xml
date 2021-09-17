@@ -26,10 +26,18 @@
                 app:srcCompat="@android:drawable/ic_menu_gallery" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/text1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
+                android:gravity="right"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:gravity="right"
                 android:text="TextView" />
         </LinearLayout>

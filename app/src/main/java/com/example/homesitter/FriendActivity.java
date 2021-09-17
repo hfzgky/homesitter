@@ -1,10 +1,12 @@
 package com.example.homesitter;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
@@ -38,11 +40,9 @@ public class FriendActivity extends AppCompatActivity {
         //선택된 항목이 있을 경우
         HashMap<String,String> item = ((HashMap<String,String>)mSAdapter.getItem(mISelectedItem));  //선택항목을 읽어옴
         Intent intent = new Intent(FriendActivity.this, EditActivity.class);
-        intent.putExtra("year", item.get("year"));  // year, month, day, title, diary을 putExtra로 넘겨줌
-        intent.putExtra("month", item.get("month"));
-        intent.putExtra("day", item.get("day"));
-        intent.putExtra("title", item.get("title"));
-        intent.putExtra("diary", item.get("diary"));
+        // pic, name, phone을 putExtra로 넘겨줌
+        intent.putExtra("name", item.get("name"));
+        intent.putExtra("phone", item.get("phone"));
         intent.putExtra("item", mISelectedItem); // 현재 선택된 인덱스
         startActivityForResult(intent, 200);    //응답을 받음
     }
@@ -51,6 +51,48 @@ public class FriendActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friend);
+
+        //pic ,name, phone
+        mListData = new ArrayList<>();
+        mSAdapter = new SimpleAdapter(this, mListData, R.layout.list_item,
+                new String[] {"name", "phone"}, new int[] {R.id.text1, R.id.text2,} );
+        mListView = findViewById(R.id.listView);
+        mListView.setAdapter(mSAdapter);
+
+        // 각 항목을 클릭했을때를 위한 이벤트 처리
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                mISelectedItem = i;
+                HashMap<String,String> item = (HashMap<String, String>) mSAdapter.getItem(i);
+                Toast.makeText(getApplicationContext(), item.get("name"), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode != 200)  //editActivity에서 온 requestCode인지 확인하고 아닐경우 종료
+            return;
+        if(resultCode == RESULT_OK) {
+            int item = data.getIntExtra("item", -1);
+
+            HashMap<String,String> hitem = new HashMap<>();     //HashMap 생성
+            //값을 넣어줌
+            hitem.put("name", data.getStringExtra("name"));
+            hitem.put("phone", data.getStringExtra("phone"));
+
+            if(item == -1)  //새로운 항목 추가
+                mListData.add(hitem);
+            else    //수정
+                mListData.set(item, hitem); //item 위치에 hitem을 저장
+            mSAdapter.notifyDataSetChanged();
+
+        } else
+            Toast.makeText(this, "취소되었습니다.", Toast.LENGTH_LONG).show(); //RESULT_OK가 아닐 경우 Toast창 알림
     }
 
     public void onClickMain(View view) {
