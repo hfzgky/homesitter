@@ -4,6 +4,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -55,7 +56,7 @@ public class FriendActivity extends AppCompatActivity {
         //pic ,name, phone
         mListData = new ArrayList<>();
         mSAdapter = new SimpleAdapter(this, mListData, R.layout.list_item,
-                new String[] {"name", "phone"}, new int[] {R.id.text1, R.id.text2,} );
+                new String[] {"pic", "name", "phone"}, new int[] {R.id.image1, R.id.text1, R.id.text2,} );
         mListView = findViewById(R.id.listView);
         mListView.setAdapter(mSAdapter);
 
@@ -84,7 +85,6 @@ public class FriendActivity extends AppCompatActivity {
             //값을 넣어줌
             hitem.put("name", data.getStringExtra("name"));
             hitem.put("phone", data.getStringExtra("phone"));
-
             if(item == -1)  //새로운 항목 추가
                 mListData.add(hitem);
             else    //수정

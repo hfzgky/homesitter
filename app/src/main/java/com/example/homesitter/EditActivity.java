@@ -5,22 +5,29 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.ContentResolver;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import java.util.HashMap;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+
 
 
 public class EditActivity extends AppCompatActivity {
     private EditText mEditName, mEditPhone;
+    private ImageButton mImagePerson;
     private int mItem = -1; //인덱스
-    ImageView imagePerson;
+    ImageView btnSave;
+    ImageButton imagePerson;
 
 
     @SuppressLint("WrongViewCast")
@@ -31,6 +38,7 @@ public class EditActivity extends AppCompatActivity {
 
         mEditName = findViewById(R.id.editTextName);
         mEditPhone = findViewById(R.id.editTextPhone);
+        mImagePerson = findViewById(R.id.imagePerson);
 
         Intent intent = getIntent();    //intent객체를 가져옴
         if (intent != null) {    //추가
@@ -42,6 +50,19 @@ public class EditActivity extends AppCompatActivity {
                 mEditPhone.setText(intent.getStringExtra("phone"));
             }
         }
+
+        //이미지를 클릭하면 갤러리에서 이미지를 가져옴
+        imagePerson = findViewById(R.id.imagePerson); // 이미지 객체를 얻어옴
+        imagePerson.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);   //이미지를 가져오기 위해 암시적 인텐트 사용
+                intent.setType("image/*");       //모든 형태의 이미지
+                startActivityForResult(intent, 101);
+            }
+        });
+
+        //취소버튼
         ImageButton btnBack;
         btnBack = findViewById(R.id.buttonBack);
         btnBack.setOnClickListener(new View.OnClickListener() {
@@ -51,7 +72,7 @@ public class EditActivity extends AppCompatActivity {
             }
         });
 
-        ImageView btnSave;
+        //저장버튼
         btnSave = findViewById(R.id.buttonSave);
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,5 +93,24 @@ public class EditActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 101)  {
+            if(resultCode == RESULT_OK) {
+                ContentResolver contentResolver = getContentResolver();
+                try {
+                    InputStream inputStream = contentResolver.openInputStream(data.getData());    //파일 내용을 읽어옴
+                    Bitmap image = BitmapFactory.decodeStream(inputStream);
+                    imagePerson.setImageBitmap(image);   //선택한 이미지를 화면에 보여줌
+                } catch (FileNotFoundException e) {     //오류가 생길경우 토스트창으로 알려줌
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "이미지로드 오류", Toast.LENGTH_LONG).show();
+                }
+            }
+
+        }
     }
 }
