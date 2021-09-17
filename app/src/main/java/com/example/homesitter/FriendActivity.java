@@ -48,6 +48,27 @@ public class FriendActivity extends AppCompatActivity {
         startActivityForResult(intent, 200);    //응답을 받음
     }
 
+    public void onClickDel(View v) {
+        int count, checked ;
+        count = mSAdapter.getCount() ;
+
+        if (count > 0) {
+            // 현재 선택된 아이템의 position 획득.
+            checked = mListView.getCheckedItemPosition();
+
+            if (checked > -1 && checked < count) {
+                // 아이템 삭제
+                mListData.remove(checked) ;
+
+                // listview 선택 초기화.
+                mListView.clearChoices();
+
+                // listview 갱신.
+                mSAdapter.notifyDataSetChanged();
+            }
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
