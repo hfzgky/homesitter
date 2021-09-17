@@ -8,8 +8,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout4"
-        android:layout_width="244dp"
-        android:layout_height="429dp"
+        android:layout_width="338dp"
+        android:layout_height="557dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
@@ -19,17 +19,20 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.46">
+        app:layout_constraintVertical_bias="0.759">
 
         <ImageButton
             android:id="@+id/imagePerson"
-            android:layout_width="208dp"
-            android:layout_height="193dp"
+            android:layout_width="230dp"
+            android:layout_height="235dp"
             android:layout_gravity="center"
             android:layout_marginBottom="50dp"
-            tools:srcCompat="@android:drawable/ic_menu_camera" />
+            android:scaleType="fitCenter"
+            android:background="#fff"
+            app:srcCompat="@drawable/gallery" />
 
         <EditText
             android:id="@+id/editTextName"
@@ -50,31 +53,35 @@
             android:gravity="center"
             android:hint="연락처"
             android:inputType="number" />
-    </LinearLayout>
 
-    <Button
-        android:id="@+id/buttonSave"
-        android:layout_width="76dp"
-        android:layout_height="43dp"
-        android:background="#FFFFFF"
-        android:text="완료"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.949"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.405" />
+    </LinearLayout>
 
     <ImageButton
         android:id="@+id/buttonCancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="41dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:background="#fff"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
-        app:layout_constraintEnd_toStartOf="@+id/buttonSave"
-        app:layout_constraintHorizontal_bias="0.103"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.022"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.401"
-        app:srcCompat="@drawable/abc_vector_test" />
+        app:layout_constraintVertical_bias="0.342"
+        app:srcCompat="@drawable/back" />
+
+    <ImageView
+        android:id="@+id/buttonSave"
+        android:layout_width="54dp"
+        android:layout_height="52dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.948"
+        app:layout_constraintStart_toEndOf="@+id/buttonCancel"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.34"
+        app:srcCompat="@drawable/done" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
