@@ -12,13 +12,13 @@
         android:key="time"
         android:dependency="alert"
         android:title="시간 설정"
-        android:summary="외부인이 설정한 시간을 초과해 머무르는 경우 알림을 보냅니다." />
+        android:summary="설정한 시간보다 외부인이 오래 머무를 경우 알려드려요." />
 
     <Preference
         android:title="A/S 안내">
         <intent
-            android:action="android.intent.action.VIEW"
-            android:data="http://www.naver.com"/>
+            android:targetPackage="com.example.homesitter"
+            android:targetClass="com.example.homesitter.ASActivity"/>
     </Preference>
 
 </PreferenceScreen>

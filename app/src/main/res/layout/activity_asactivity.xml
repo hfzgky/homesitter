@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ASActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="563dp"
+        android:layout_above="@+id/button"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="112dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="-18dp"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="18dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="무상 A/S 규정"
+            android:textColor="@color/colorPrimary"
+            android:textSize="17sp"
+            tools:layout_editor_absoluteX="186dp"
+            tools:layout_editor_absoluteY="318dp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:text="고객의 과실이 없는 경우, 무상 보증 기간은 구매일로부터 1년입니다."
+            android:textColor="#888888"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="보증 기간 이내라도 유상 A/S 대상인 경우"
+            android:textColor="@color/colorPrimary"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:lineSpacingExtra="5dp"
+            android:text="- 용도 이외의 사용 또는 취급 부주의로 인한 고장 및 손상\n- 당사 A/S 센터 외에 제 3자에 의한 수리 및 개조로 인한 고장 및 손상\n- 천재 지변(가스 피해, 화재, 지진, 낙뢰, 수해 등)에 의한 고장 및 손상\n- 소비자의 고의 또는 과실에 의한 성능, 기능 상의 고장 및 손상"
+            android:textColor="#888888"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="-개인적인 사용감을 포함한 단순 변심 및 소비자 과실로 인한 교환 및 반품은 불가합니다."
+            android:textColor="@color/colorPrimary"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="160dp"
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="53dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginRight="160dp"
+        android:layout_marginBottom="146dp"
+        android:background="@drawable/shape_line_as"
+        android:onClick="onClickASClose"
+        android:text="닫기" />
+
+
+</RelativeLayout>

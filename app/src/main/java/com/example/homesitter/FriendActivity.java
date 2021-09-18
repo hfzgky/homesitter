@@ -48,6 +48,7 @@ public class FriendActivity extends AppCompatActivity {
         startActivityForResult(intent, 200);    //응답을 받음
     }
 
+    //삭제 버튼 클릭 시
     public void onClickDel(View v) {
         int count, checked ;
         count = mSAdapter.getCount() ;
