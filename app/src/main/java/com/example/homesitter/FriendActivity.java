@@ -53,6 +53,12 @@ public class FriendActivity extends AppCompatActivity {
         int count, checked ;
         count = mSAdapter.getCount() ;
 
+        //선택된 항목이 없을 경우
+        if(mISelectedItem == -1) {
+            Toast.makeText(getApplicationContext(), "삭제할 항목을 선택해주세요. ", Toast.LENGTH_LONG).show();  // 선택된 항목이 없음을 토스트창으로 알려줌
+            return; //종료
+        }
+
         if (count > 0) {
             // 현재 선택된 아이템의 position 획득.
             checked = mListView.getCheckedItemPosition();
