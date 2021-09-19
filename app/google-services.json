@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "680121717150",
-    "project_id": "homesitter-70295",
-    "storage_bucket": "homesitter-70295.appspot.com"
+    "project_number": "472618183350",
+    "project_id": "home-d0ac0",
+    "storage_bucket": "home-d0ac0.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:680121717150:android:1b8a7770b44705ef52868f",
+        "mobilesdk_app_id": "1:472618183350:android:4abf177ce498b2c75b9417",
         "android_client_info": {
           "package_name": "com.example.homesitter"
         }
       },
       "oauth_client": [
         {
-          "client_id": "680121717150-8u5p7v8d7psfkm65mhrlsu1cr1ep7obq.apps.googleusercontent.com",
+          "client_id": "472618183350-45fu1imnrboeub610c40o42eaevbnve4.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyByxsW3XpdeJlu-v9hCoD-edO0vvjPwiUg"
+          "current_key": "AIzaSyC1h2mkyD4A5e-frWeBDx5kacQQW_fyAjE"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "680121717150-8u5p7v8d7psfkm65mhrlsu1cr1ep7obq.apps.googleusercontent.com",
+              "client_id": "472618183350-45fu1imnrboeub610c40o42eaevbnve4.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
