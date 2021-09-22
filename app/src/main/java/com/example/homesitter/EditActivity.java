@@ -79,7 +79,7 @@ public class EditActivity extends AppCompatActivity {
                 String sName = mEditName.getText().toString().trim();
 
                 if(sName.isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "내용을 입력해 주세요", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "이름을 입력해 주세요", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
