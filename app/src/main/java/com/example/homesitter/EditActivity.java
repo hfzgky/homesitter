@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 
 import android.widget.EditText;
@@ -23,7 +24,7 @@ import java.io.InputStream;
 
 
 public class EditActivity extends AppCompatActivity {
-    private EditText mEditName, mEditPhone;
+    private EditText mEditName;
     private ImageButton mImagePerson;
     private int mItem = -1; //인덱스
     ImageView btnSave;
@@ -37,7 +38,6 @@ public class EditActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edit);
 
         mEditName = findViewById(R.id.editTextName);
-        mEditPhone = findViewById(R.id.editTextPhone);
         mImagePerson = findViewById(R.id.imagePerson);
 
         Intent intent = getIntent();    //intent객체를 가져옴
@@ -47,7 +47,6 @@ public class EditActivity extends AppCompatActivity {
             if (mItem != -1) {   //수정
                 //값을 가져와서 보여줌
                 mEditName.setText(intent.getStringExtra("name"));
-                mEditPhone.setText(intent.getStringExtra("phone"));
             }
         }
 
@@ -78,9 +77,8 @@ public class EditActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String sName = mEditName.getText().toString().trim();
-                String sPhone = mEditPhone.getText().toString().trim();
 
-                if(sName.isEmpty() || sPhone.isEmpty()) {
+                if(sName.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "내용을 입력해 주세요", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -88,7 +86,6 @@ public class EditActivity extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.putExtra("item", mItem);
                 intent.putExtra("name", sName);
-                intent.putExtra("phone", sPhone);
                 setResult(RESULT_OK, intent);
                 finish();
             }

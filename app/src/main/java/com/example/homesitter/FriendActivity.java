@@ -43,7 +43,6 @@ public class FriendActivity extends AppCompatActivity {
         Intent intent = new Intent(FriendActivity.this, EditActivity.class);
         // pic, name, phone을 putExtra로 넘겨줌
         intent.putExtra("name", item.get("name"));
-        intent.putExtra("phone", item.get("phone"));
         intent.putExtra("item", mISelectedItem); // 현재 선택된 인덱스
         startActivityForResult(intent, 200);    //응답을 받음
     }
@@ -82,10 +81,10 @@ public class FriendActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friend);
 
-        //pic ,name, phone
+        //name
         mListData = new ArrayList<>();
         mSAdapter = new SimpleAdapter(this, mListData, R.layout.list_item,
-                new String[] {"pic", "name", "phone"}, new int[] {R.id.image1, R.id.text1, R.id.text2,} );
+                new String[] {"name"}, new int[] {R.id.text1});
         mListView = findViewById(R.id.listView);
         mListView.setAdapter(mSAdapter);
 
@@ -113,7 +112,6 @@ public class FriendActivity extends AppCompatActivity {
             HashMap<String,String> hitem = new HashMap<>();     //HashMap 생성
             //값을 넣어줌
             hitem.put("name", data.getStringExtra("name"));
-            hitem.put("phone", data.getStringExtra("phone"));
             if(item == -1)  //새로운 항목 추가
                 mListData.add(hitem);
             else    //수정
