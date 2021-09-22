@@ -1,8 +1,10 @@
 package com.example.homesitter;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -34,7 +36,7 @@ public class FriendActivity extends AppCompatActivity {
     public void onClickEdit(View v) {
         //선택된 항목이 없을 경우
         if(mISelectedItem == -1) {
-            Toast.makeText(getApplicationContext(), "수정할 항목을 선택해주세요. ", Toast.LENGTH_LONG).show();  // 선택된 항목이 없음을 토스트창으로 알려줌
+            Toast.makeText(FriendActivity.this, "수정할 항목을 선택해주세요. ", Toast.LENGTH_SHORT).show();  // 선택된 항목이 없음을 토스트창으로 알려줌
             return; //종료
         }
 
@@ -52,9 +54,8 @@ public class FriendActivity extends AppCompatActivity {
         int count, checked ;
         count = mSAdapter.getCount() ;
 
-        //선택된 항목이 없을 경우
         if(mISelectedItem == -1) {
-            Toast.makeText(getApplicationContext(), "삭제할 항목을 선택해주세요.", Toast.LENGTH_LONG).show();  // 선택된 항목이 없음을 토스트창으로 알려줌
+            Toast.makeText(FriendActivity.this, "삭제할 항목을 선택해주세요. ", Toast.LENGTH_SHORT).show();  // 선택된 항목이 없음을 토스트창으로 알려줌
             return; //종료
         }
 
@@ -63,17 +64,46 @@ public class FriendActivity extends AppCompatActivity {
             checked = mListView.getCheckedItemPosition();
 
             if (checked > -1 && checked < count) {
-                // 아이템 삭제
-                mListData.remove(checked) ;
-
-                // listview 선택 초기화.
-                mListView.clearChoices();
-
-                // listview 갱신.
-                mSAdapter.notifyDataSetChanged();
-
+                mListData.remove(checked) ;  // 아이템 삭제
+                mListView.clearChoices();  // listview 선택 초기화.
+                mSAdapter.notifyDataSetChanged();   // listview 갱신.
             }
         }
+
+
+        //삭제 버튼 눌렀을 때 알러트창 나오게하기.. 근데 에러남....
+/*        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("삭제").setMessage("선택하신 항목을 삭제하시겠습니까?");
+        builder.setPositiveButton("네", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                int count, checked ;
+                count = mSAdapter.getCount() ;
+
+                if (count > 0) {
+                    // 현재 선택된 아이템의 position 획득.
+                    checked = mListView.getCheckedItemPosition();
+
+                    if (checked > -1 && checked < count) {
+                        mListData.remove(checked) ;  // 아이템 삭제
+                        mListView.clearChoices();  // listview 선택 초기화.
+                        mSAdapter.notifyDataSetChanged();   // listview 갱신.
+                    }
+                }
+            }
+        });
+
+        builder.setNegativeButton("아니요", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(getApplicationContext(), "삭제가 취소되었습니다", Toast.LENGTH_SHORT).show();
+                mSAdapter.notifyDataSetChanged();
+            }
+        });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();     */
+
     }
 
     @Override
@@ -86,6 +116,7 @@ public class FriendActivity extends AppCompatActivity {
         mSAdapter = new SimpleAdapter(this, mListData, R.layout.list_item,
                 new String[] {"name"}, new int[] {R.id.text1});
         mListView = findViewById(R.id.listView);
+        mListView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         mListView.setAdapter(mSAdapter);
 
         // 각 항목을 클릭했을때를 위한 이벤트 처리
