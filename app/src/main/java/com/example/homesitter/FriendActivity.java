@@ -43,7 +43,7 @@ public class FriendActivity extends AppCompatActivity {
         //선택된 항목이 있을 경우
         HashMap<String,String> item = ((HashMap<String,String>)mSAdapter.getItem(mISelectedItem));  //선택항목을 읽어옴
         Intent intent = new Intent(FriendActivity.this, EditActivity.class);
-        // pic, name, phone을 putExtra로 넘겨줌
+        // name을 putExtra로 넘겨줌
         intent.putExtra("name", item.get("name"));
         intent.putExtra("item", mISelectedItem); // 현재 선택된 인덱스
         startActivityForResult(intent, 200);    //응답을 받음
