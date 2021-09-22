@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory android:title="환경설정">
+    <PreferenceCategory android:title="환경설정" android:layout="@layout/prefctg">
         <SwitchPreference
             android:defaultValue="true"
             android:key="alert"
@@ -15,7 +15,7 @@
             android:title="시간 설정" />
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="A/S 안내">
+    <PreferenceCategory android:title="A/S 안내" android:layout="@layout/prefctg">
         <Preference android:title="A/S 안내"
             android:summary="안내를 보려면 클릭하세요.">
             <intent
