@@ -25,6 +25,26 @@ public class FriendActivity extends AppCompatActivity {
     private ArrayList<HashMap<String,String>> mListData; // 여러개의 정보를 저장하기 위해 HashMap 객체 사용
     private int mISelectedItem = -1;    //인덱스 값 저장, 현재 선택된 항목 없음
 
+    public void onClickMain(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void onClickClip(View view) {
+        Intent intent = new Intent(this, ClipActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void onClickPreference(View view) {
+        Intent intent = new Intent(this, PreferenceScreen.class);
+        intent.putExtra("item", -1);
+        startActivityForResult(intent, 200);
+    }
+
+
+
     //추가 버튼 클릭 시
     public void onClickAdd(View v) {
         Intent intent = new Intent(getApplicationContext(), EditActivity.class);    //인텐트 생성하여 EditActivity로 이동
@@ -43,9 +63,11 @@ public class FriendActivity extends AppCompatActivity {
         //선택된 항목이 있을 경우
         HashMap<String,String> item = ((HashMap<String,String>)mSAdapter.getItem(mISelectedItem));  //선택항목을 읽어옴
         Intent intent = new Intent(FriendActivity.this, EditActivity.class);
+
         // name을 putExtra로 넘겨줌
         intent.putExtra("name", item.get("name"));
         intent.putExtra("item", mISelectedItem); // 현재 선택된 인덱스
+
         startActivityForResult(intent, 200);    //응답을 받음
     }
 
@@ -128,7 +150,8 @@ public class FriendActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), item.get("name"), Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(getApplicationContext(), InfoActivity.class);    //인텐트 생성하여 InfoActivity로 이동
-                intent.putExtra("item", -1);    //mIselectedItem
+                intent.putExtra("name", item.get("name"));
+                intent.putExtra("item", i);    //mIselectedItem
                 startActivityForResult(intent, 200);
             }
         });
@@ -156,22 +179,5 @@ public class FriendActivity extends AppCompatActivity {
             Toast.makeText(this, "취소되었습니다.", Toast.LENGTH_LONG).show(); //RESULT_OK가 아닐 경우 Toast창 알림
     }
 
-    public void onClickMain(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
-    }
-
-    public void onClickClip(View view) {
-        Intent intent = new Intent(this, ClipActivity.class);
-        startActivity(intent);
-        finish();
-    }
-
-    public void onClickPreference(View view) {
-        Intent intent = new Intent(this, PreferenceScreen.class);
-        intent.putExtra("item", -1);
-        startActivityForResult(intent, 200);
-    }
 
 }
