@@ -127,6 +127,9 @@ public class FriendActivity extends AppCompatActivity {
                 HashMap<String,String> item = (HashMap<String, String>) mSAdapter.getItem(i);
                 Toast.makeText(getApplicationContext(), item.get("name"), Toast.LENGTH_SHORT).show();
 
+                Intent intent = new Intent(getApplicationContext(), InfoActivity.class);    //인텐트 생성하여 InfoActivity로 이동
+                intent.putExtra("item", -1);    //mIselectedItem
+                startActivityForResult(intent, 200);
             }
         });
     }
