@@ -1,10 +1,10 @@
 package com.example.homesitter;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 public class ASActivity extends AppCompatActivity {
 
