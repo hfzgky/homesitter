@@ -1,18 +1,18 @@
 <resources>
     <!-- Reply Preference -->
     <string-array name="reply_entries">
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
-        <item>11</item>
-        <item>12</item>
+        <item>8초</item>
+        <item>9초</item>
+        <item>10초</item>
+        <item>11초</item>
+        <item>12초</item>
     </string-array>
 
     <string-array name="reply_values">
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
-        <item>11</item>
-        <item>12</item>
+        <item>8초</item>
+        <item>9초</item>
+        <item>10초</item>
+        <item>11초</item>
+        <item>12초</item>
     </string-array>
 </resources>
