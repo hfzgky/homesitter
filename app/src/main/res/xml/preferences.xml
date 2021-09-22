@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <SwitchPreference
-        android:defaultValue="true"
-        android:key="alert"
-        android:title="알림" />
+    <PreferenceCategory android:title="환경설정">
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="alert"
+            android:title="알림 on/off" />
+        <ListPreference
+            android:dependency="alert"
+            android:entries="@array/reply_entries"
+            android:entryValues="@array/reply_values"
+            android:key="time"
+            android:summary="설정한 시간보다 외부인이 오래 머무를 경우 알려드려요."
+            android:title="시간 설정" />
+    </PreferenceCategory>
 
-    <ListPreference
-        android:entries="@array/reply_entries"
-        android:entryValues="@array/reply_values"
-        android:key="time"
-        android:dependency="alert"
-        android:title="시간 설정"
-        android:summary="설정한 시간보다 외부인이 오래 머무를 경우 알려드려요." />
-
-    <Preference
-        android:title="A/S 안내">
-        <intent
-            android:targetPackage="com.example.homesitter"
-            android:targetClass="com.example.homesitter.ASActivity"/>
-    </Preference>
+    <PreferenceCategory android:title="A/S 안내">
+        <Preference android:title="A/S 안내"
+            android:summary="안내를 보려면 클릭하세요.">
+            <intent
+                android:targetClass="com.example.homesitter.ASActivity"
+                android:targetPackage="com.example.homesitter" />
+        </Preference>
+    </PreferenceCategory>
 
 </PreferenceScreen>

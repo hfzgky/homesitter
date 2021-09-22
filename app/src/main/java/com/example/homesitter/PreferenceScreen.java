@@ -1,15 +1,14 @@
 package com.example.homesitter;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
+import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 
 public class PreferenceScreen extends PreferenceActivity {
 
-        @SuppressLint("ResourceType")
         @Override
         protected void onCreate(Bundle savedInstanceState) {
                 super.onCreate(savedInstanceState);
