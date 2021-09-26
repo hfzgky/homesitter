@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity{
         private boolean mRun = false;   */
     private TextView mDayView;
     private TextView mTimeView;
+
 //    private Handler mHandler ;
 
     public void onClickClip(View view) {
