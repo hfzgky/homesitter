@@ -14,9 +14,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".InfoActivity"
-            android:exported="true" />
-        <activity
             android:name=".ASActivity"
             android:exported="true" />
         <activity
@@ -24,6 +21,7 @@
             android:exported="true" />
         <activity android:name=".FriendActivity" />
         <activity android:name=".ClipActivity" />
+        <activity android:name=".InfoActivity" />
         <activity android:name=".PreferenceScreen" />
         <activity
             android:name=".MainActivity"
@@ -34,12 +32,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <service
-            android:name=".PushNotificationService"
-            android:exported="false">
+        <service android:name=".PushNotificationService" android:exported="false">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="com.google.firebase.MESSAGING_EVENT"></action>
             </intent-filter>
         </service>
     </application>
