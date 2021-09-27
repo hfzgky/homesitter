@@ -71,8 +71,9 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Intent intent = new Intent(this, LoadingActivity.class);
-        startActivity(intent);
+
+        //Intent intent = new Intent(this, LoadingActivity.class);
+        //startActivity(intent);
 
         Handler mHandler = new Handler(new Handler.Callback() {
             @SuppressLint("DefaultLocale")
@@ -124,87 +125,4 @@ public class MainActivity extends AppCompatActivity{
         Thread t = new Thread(nr) ;
         t.start() ;
     }
-
-
-/*        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-
-        mViewLayout = (LinearLayout) findViewById(R.id.view_layout);
-
-        mDayView = (TextView)findViewById(R.id.day_view);
-        mDayView.setGravity(Gravity.BOTTOM);
-        mDayView.setTextSize(18);
-        mDayView.setTextColor(Color.LTGRAY);
-        mDayView.setText(String.format(""));
-
-        mTimeView = (TextView)findViewById(R.id.time_view);
-        mTimeView.setTextSize(30);
-        mTimeView.setTextColor(Color.LTGRAY);
-        mTimeView.setText(String.format(""));
-
-        start();
-
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        stop();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        stop();
-    }
-
-    void start()
-    {
-        if(mWorker!= null)
-        {
-            stop();
-        }
-
-        mRun = true;
-        mWorker =  new Thread(this);
-        mWorker.start();
-    }
-
-    void stop()
-    {
-        if(mWorker != null && mWorker.isAlive())
-        {
-            mRun = false;
-            mWorker.interrupt();
-            wait(1000);
-            mWorker = null;
-        }
-    }
-
-    @Override
-    public void run() {
-
-
-        while(mRun)
-        {
-            Calendar calendar = Calendar.getInstance();
-
-            int yy = calendar.get(Calendar.YEAR);
-            int mm = calendar.get(Calendar.MONTH)+1;
-            int dd = calendar.get(Calendar.DAY_OF_MONTH);
-            int h = calendar.get(Calendar.HOUR_OF_DAY);
-            int m = calendar.get(Calendar.MINUTE);
-            int s = calendar.get(Calendar.SECOND);
-
-            mDayView.setText(String.format("%04d-%02d-%02d",yy,mm,dd));
-            mTimeView.setText(String.format("%02d:%02d:%02d",h,m,s));
-
-            wait(200);
-        }
-    }
-
-    private void wait(int ms) {
-        SystemClock.sleep(ms);
-    }           */
-
 }

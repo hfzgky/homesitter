@@ -25,8 +25,9 @@
         <activity android:name=".FriendActivity" />
         <activity android:name=".ClipActivity" />
         <activity android:name=".PreferenceScreen" />
+        <activity android:name=".MainActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name=".LoadingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
