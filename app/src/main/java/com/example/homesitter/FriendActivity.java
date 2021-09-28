@@ -141,7 +141,6 @@ public class FriendActivity extends AppCompatActivity {
         mListView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         mListView.setAdapter(mSAdapter);
 
-        // 각 항목을 클릭했을때를 위한 이벤트 처리
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
