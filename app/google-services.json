@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "472618183350",
-    "project_id": "home-d0ac0",
-    "storage_bucket": "home-d0ac0.appspot.com"
+    "project_number": "969272980157",
+    "project_id": "homesitter-54d69",
+    "storage_bucket": "homesitter-54d69.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:472618183350:android:4abf177ce498b2c75b9417",
+        "mobilesdk_app_id": "1:969272980157:android:3ccac4e4b801970b8b3dd4",
         "android_client_info": {
           "package_name": "com.example.homesitter"
         }
       },
       "oauth_client": [
         {
-          "client_id": "472618183350-45fu1imnrboeub610c40o42eaevbnve4.apps.googleusercontent.com",
+          "client_id": "969272980157-qn90ukg17ic0egj6dppk91844lsnqd4e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.homesitter",
+            "certificate_hash": "a05a10ac4a809559bd445d7cb982c8c4a2175f06"
+          }
+        },
+        {
+          "client_id": "969272980157-srcembv8u4ng2bh5b20o21et22gahs50.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC1h2mkyD4A5e-frWeBDx5kacQQW_fyAjE"
+          "current_key": "AIzaSyCze23HOG98haGOcK4oD9gQgR9bCtn_W1o"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "472618183350-45fu1imnrboeub610c40o42eaevbnve4.apps.googleusercontent.com",
+              "client_id": "969272980157-srcembv8u4ng2bh5b20o21et22gahs50.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
