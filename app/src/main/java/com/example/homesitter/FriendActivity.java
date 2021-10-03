@@ -10,6 +10,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
@@ -154,6 +155,11 @@ public class FriendActivity extends AppCompatActivity {
                 startActivityForResult(intent, 200);
             }
         });
+    }
+    public void onClickTextPhotos(View view) {
+        Intent intent = new Intent(getApplicationContext(), InfoActivity.class);
+        intent.putExtra("item", 1);
+        startActivityForResult(intent, 200);
     }
 
     @Override

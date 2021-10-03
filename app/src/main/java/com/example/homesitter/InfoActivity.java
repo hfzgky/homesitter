@@ -43,6 +43,6 @@ public class InfoActivity extends AppCompatActivity {
                 txtName.setText(intent.getStringExtra("name"));
             }
         }
-
     }
+
 }
