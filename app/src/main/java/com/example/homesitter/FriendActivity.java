@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.icu.text.IDNA;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -27,14 +28,14 @@ public class FriendActivity extends AppCompatActivity {
 
     public void onClickMain(View view) {
         Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
+        intent.putExtra("item",-1);
+        startActivityForResult(intent, 200);
     }
 
     public void onClickClip(View view) {
         Intent intent = new Intent(this, ClipActivity.class);
-        startActivity(intent);
-        finish();
+        intent.putExtra("item",-1);
+        startActivityForResult(intent, 200);
     }
 
     public void onClickPreference(View view) {
@@ -43,7 +44,12 @@ public class FriendActivity extends AppCompatActivity {
         startActivityForResult(intent, 200);
     }
 
-
+    //이름 클릭 시
+    public void onClickInfo(View view) {
+        Intent intent= new Intent(getApplicationContext(), InfoActivity.class);
+        intent.putExtra("item",-1);
+        startActivityForResult(intent, 200);
+    }
 
     //추가 버튼 클릭 시
     public void onClickAdd(View v) {
@@ -146,12 +152,6 @@ public class FriendActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 mISelectedItem = i;
                 HashMap<String,String> item = (HashMap<String, String>) mSAdapter.getItem(i);
-                Toast.makeText(getApplicationContext(), item.get("name"), Toast.LENGTH_SHORT).show();
-
-           /*     Intent intent = new Intent(getApplicationContext(), InfoActivity.class);    //인텐트 생성하여 InfoActivity로 이동
-                intent.putExtra("name", item.get("name"));
-                intent.putExtra("item", i);    //mIselectedItem
-                startActivityForResult(intent, 200);*/
             }
         });
     }
@@ -177,6 +177,4 @@ public class FriendActivity extends AppCompatActivity {
         } else
             Toast.makeText(this, "취소되었습니다.", Toast.LENGTH_LONG).show(); //RESULT_OK가 아닐 경우 Toast창 알림
     }
-
-
 }
