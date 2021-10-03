@@ -7,7 +7,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.icu.text.AlphabeticIndex;
 import android.os.Bundle;
+import android.text.Layout;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -141,20 +143,21 @@ public class FriendActivity extends AppCompatActivity {
         mListView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         mListView.setAdapter(mSAdapter);
 
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                mISelectedItem = i;
-                HashMap<String,String> item = (HashMap<String, String>) mSAdapter.getItem(i);
-                Toast.makeText(getApplicationContext(), item.get("name"), Toast.LENGTH_SHORT).show();
+            //InfoActivety 이동
+            mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    mISelectedItem = i;
+                    HashMap<String,String> item = (HashMap<String, String>) mSAdapter.getItem(i);
+                    Toast.makeText(getApplicationContext(), item.get("name"), Toast.LENGTH_SHORT).show();
 
-                Intent intent = new Intent(getApplicationContext(), InfoActivity.class);    //인텐트 생성하여 InfoActivity로 이동
-                intent.putExtra("name", item.get("name"));
-                intent.putExtra("item", i);    //mIselectedItem
-                startActivityForResult(intent, 200);
-            }
-        });
-    }
+                    Intent intent = new Intent(getApplicationContext(), InfoActivity.class);    //인텐트 생성하여 InfoActivity로 이동
+                    intent.putExtra("name", item.get("name"));
+                    intent.putExtra("item", i);    //mIselectedItem
+                    startActivityForResult(intent, 200);
+                }
+            });
+        }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
