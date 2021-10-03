@@ -13,15 +13,15 @@
             android:key="time"
             android:summary="설정한 시간보다 외부인이 오래 머무를 경우 알려드려요."
             android:title="시간 설정" />
-   <!--     <EditTextPreference
+        <EditTextPreference
             android:defaultValue="112"
             android:key="edit_text_preference_1"
             android:selectAllOnFocus="true"
             android:singleLine="true"
-            android:inputType="number"
+            android:inputType="phone"
             android:id="@+id/emergency"
-            android:summary="긴급 발신 전화번호를 수정해요."
-            android:title="긴급 전화번호 수정" />       -->
+            android:summary="긴급 발신 전화번호를 수정하세요."
+            android:title="긴급 전화번호 수정" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="A/S 안내" >

@@ -30,7 +30,7 @@ public class LoadingActivity extends AppCompatActivity {
         finish();
     }
 
-/*    }
+}/*    }
 
     private void startLoading() {
         Handler handler = new Handler();
@@ -41,4 +41,3 @@ public class LoadingActivity extends AppCompatActivity {
             }
         }, 1000);
     }       */
-}
