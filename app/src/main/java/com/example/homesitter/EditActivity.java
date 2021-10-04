@@ -1,6 +1,7 @@
 package com.example.homesitter;
 
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,8 +25,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import java.io.FileNotFoundException;
-import java.io.InputStream;
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.ArrayList;
 
 
@@ -35,7 +36,7 @@ public class EditActivity extends AppCompatActivity {
     private int mItem = -1; //인덱스
     private Button mButton;
     ImageView btnSave;
-    ImageButton imagePerson;
+//    ImageButton imagePerson;
 
     private static final String TAG = "MultiImageActivity";
     ArrayList<Uri> uriList = new ArrayList<>();     // 이미지의 uri를 담을 ArrayList 객체
@@ -95,7 +96,8 @@ public class EditActivity extends AppCompatActivity {
                 String sName = mEditName.getText().toString().trim();
 
                 if(sName.isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "이름을 입력해 주세요", Toast.LENGTH_SHORT).show();
+                    Snackbar.make(v, "이름을 입력해 주세요.", Snackbar.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), "이름을 입력해 주세요", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -130,7 +132,7 @@ public class EditActivity extends AppCompatActivity {
                     Log.e("clipData", String.valueOf(clipData.getItemCount()));
 
                     if(clipData.getItemCount() > 11){   // 선택한 이미지가 11장 이상인 경우
-                        Toast.makeText(getApplicationContext(), "사진은 11장까지 선택 가능합니다.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "사진은 10장까지 선택 가능합니다.", Toast.LENGTH_LONG).show();
                     }
                     else {   // 선택한 이미지가 1장 이상 10장 이하인 경우
                         Log.e(TAG, "multiple choice");
