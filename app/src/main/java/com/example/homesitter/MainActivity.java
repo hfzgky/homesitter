@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity{
     private TextView mDayView;
     private TextView mTimeView;
 
+
     public void onClickClip(View view) {
         Intent intent = new Intent(this, ClipActivity.class);
         startActivity(intent);
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         Handler mHandler = new Handler(new Handler.Callback() {
             @SuppressLint("DefaultLocale")
