@@ -1,19 +1,15 @@
 package com.example.homesitter;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.icu.text.IDNA;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,17 +21,31 @@ public class FriendActivity extends AppCompatActivity {
     private SimpleAdapter mSAdapter;
     private ArrayList<HashMap<String,String>> mListData; // 여러개의 정보를 저장하기 위해 HashMap 객체 사용
     private int mISelectedItem = -1;    //인덱스 값 저장, 현재 선택된 항목 없음
+    private long backKeyPressedTime = 0;
+    private Toast toast;
 
+    @Override
+    public void onBackPressed() {
+        if (System.currentTimeMillis()>backKeyPressedTime + 2500){
+            backKeyPressedTime = System.currentTimeMillis();
+            toast = Toast.makeText(this, "뒤로 가기 버튼을 한 번 더 누르시면 종료됩니다.", Toast.LENGTH_LONG);
+            toast.show();
+            return;
+        }
+        if (System.currentTimeMillis() <= backKeyPressedTime + 2500) {
+            finish();
+        }
+    }
     public void onClickMain(View view) {
         Intent intent = new Intent(this, MainActivity.class);
-        intent.putExtra("item",-1);
-        startActivityForResult(intent, 200);
+        startActivity(intent);
+        finish();
     }
 
     public void onClickClip(View view) {
         Intent intent = new Intent(this, ClipActivity.class);
-        intent.putExtra("item",-1);
-        startActivityForResult(intent, 200);
+        startActivity(intent);
+        finish();
     }
 
     public void onClickPreference(View view) {
