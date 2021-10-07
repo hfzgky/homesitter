@@ -43,14 +43,37 @@
             android:background="#FFFFFF"
             android:text="사진 추가" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
+        <ImageView
+            android:id="@+id/iv_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/buttonGall"
+            android:layout_centerInParent="true"/>
+
+        <HorizontalScrollView
+            android:id="@+id/hori_scroll_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:orientation="horizontal">
+            android:layout_below="@+id/buttonGall"
+            android:fillViewport="false"
+            android:foregroundGravity="left"
+            tools:ignore="NotSibling">
 
-        </androidx.recyclerview.widget.RecyclerView>
+            <LinearLayout
+                android:id="@+id/selected_photos_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginTop="20dp"
+                android:animateLayoutChanges="true"
+                android:gravity="left"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <!-- images will be added dynamicall to this layout -->
+            </LinearLayout>
+        </HorizontalScrollView>
+
 
         <!--
         <ImageButton

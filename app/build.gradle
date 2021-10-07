@@ -55,7 +55,7 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0' // 글라이드 이미지 로딩2
     //noinspection GradleCompatible
     implementation 'com.android.support:design:28.0.0'
-    implementation 'gun0912.ted:tedpermission:2.0.0'
-
+    implementation 'gun0912.ted:tedbottompicker:2.0.1'
+    implementation 'gun0912.ted:tedpermission:2.2.0'
 
 }

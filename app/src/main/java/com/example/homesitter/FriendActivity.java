@@ -12,8 +12,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -62,7 +65,8 @@ public class FriendActivity extends AppCompatActivity {
     public void onClickEdit(View v) {
         //선택된 항목이 없을 경우
         if(mISelectedItem == -1) {
-            Toast.makeText(FriendActivity.this, "수정할 항목을 선택해주세요. ", Toast.LENGTH_SHORT).show();  // 선택된 항목이 없음을 토스트창으로 알려줌
+            Snackbar.make(v, "수정할 항목을 선택해주세요. ", Snackbar.LENGTH_SHORT).show();
+            // 선택된 항목이 없음을 토스트창으로 알려줌
             return; //종료
         }
 
@@ -83,7 +87,7 @@ public class FriendActivity extends AppCompatActivity {
         count = mSAdapter.getCount() ;
 
         if(mISelectedItem == -1) {
-            Toast.makeText(FriendActivity.this, "삭제할 항목을 선택해주세요. ", Toast.LENGTH_SHORT).show();  // 선택된 항목이 없음을 토스트창으로 알려줌
+            Snackbar.make(v, "삭제할 항목을 선택해주세요. ", Snackbar.LENGTH_SHORT).show();
             return; //종료
         }
 
@@ -175,6 +179,6 @@ public class FriendActivity extends AppCompatActivity {
             mSAdapter.notifyDataSetChanged();
 
         } else
-            Toast.makeText(this, "취소되었습니다.", Toast.LENGTH_LONG).show(); //RESULT_OK가 아닐 경우 Toast창 알림
+        Toast.makeText(this, "취소되었습니다.", Toast.LENGTH_LONG).show(); //RESULT_OK가 아닐 경우 Toast창 알림
     }
 }
