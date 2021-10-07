@@ -1,9 +1,12 @@
 package com.example.homesitter;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.MediaController;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,6 +30,11 @@ public class ClipActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clip);
+
+        final VideoView videoview=(VideoView)findViewById(R.id.videoView);
+        Uri url= Uri.parse("https://ykarr.github.io/web/test.mp4");
+        videoview.setVideoURI(url);
+        videoview.setMediaController(new MediaController(this));
     }
 
     public void onClickMain(View view) {
