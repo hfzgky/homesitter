@@ -148,13 +148,19 @@ public class EditActivity<Disposable> extends AppCompatActivity {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String sName = mEditName.getText().toString();
+                if(sName.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "이름을 입력해주세요", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+
                 if (selectedUriList!= null&&mEditName!=null) {
                     final ProgressDialog progressDialog = new ProgressDialog(EditActivity.this);
                     progressDialog.setTitle("업로드 중");
                     progressDialog.show();
                     FirebaseStorage storage = FirebaseStorage.getInstance();
                     StorageReference storageRef;
-                    String sName = mEditName.getText().toString();
+//                    String sName = mEditName.getText().toString();
                     FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
                     DatabaseReference childreference=firebaseDatabase.getReference().child("00gpwls00/PhotoLink/"+name);
                     ValueEventListener valueEventListener = new ValueEventListener() {
