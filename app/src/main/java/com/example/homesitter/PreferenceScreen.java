@@ -19,10 +19,6 @@ public class PreferenceScreen extends PreferenceActivity {
 //        editTextPreference = (EditText) findViewById(R.id.emergency) ;
         pref = PreferenceManager.getDefaultSharedPreferences(this);
         editor = pref.edit();
-        String data = editTextPreference.getText().toString();
-        Intent intent = new Intent(PreferenceScreen.this, MainActivity.class);
-        intent.putExtra("emergency",data);
-        startActivity(intent);
         boolean alr = pref.getBoolean("alert", true);
         Integer emernum = pref.getInt("emernum", 112);
     }
