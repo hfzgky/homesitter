@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         videoView = (VideoView) findViewById(R.id.videoView);
         firebaseDatabase = FirebaseDatabase.getInstance();
-        childreference = firebaseDatabase.getReference().child("00gpwls00/VideoLink/");
+        childreference = firebaseDatabase.getReference().child("cctv/VideoLink/");
         storage2 = FirebaseStorage.getInstance();
         Handler mHandler = new Handler(new Handler.Callback() {
             @SuppressLint("DefaultLocale")
@@ -154,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
                         target=link[link.length-1];
                         storagelink=target+".mp4";
                         System.out.println("storage link:"+storagelink);
-                        videoRef = storage2.getReferenceFromUrl("gs://homesitter-54d69.appspot.com").child("/00gpwls00/Video/"+storagelink);
+                        videoRef = storage2.getReferenceFromUrl("gs://homesitter-54d69.appspot.com").child("/cctv/Video/"+storagelink);
                         downloadVideo(videoRef);
                         try {
                             Thread.sleep(3000);
@@ -235,7 +235,7 @@ public class MainActivity extends AppCompatActivity {
         //link에 속한 애들 length-1만큼 돌려서 삭제
 
         for (delete_count = 0; delete_count < link.length - 1; delete_count++) {
-            storage2.getReferenceFromUrl("gs://homesitter-54d69.appspot.com").child("/00gpwls00/Video/" + link[delete_count] + ".h264").delete()
+            storage2.getReferenceFromUrl("gs://homesitter-54d69.appspot.com").child("/cctv/Video/" + link[delete_count] + ".h264").delete()
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
