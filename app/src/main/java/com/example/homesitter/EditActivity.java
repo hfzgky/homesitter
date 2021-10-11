@@ -1,20 +1,10 @@
 package com.example.homesitter;
 
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
-import android.content.ClipData;
-import android.content.ContentResolver;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -22,15 +12,16 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
-
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
@@ -50,18 +41,19 @@ import com.google.firebase.storage.UploadTask;
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
 
-import gun0912.tedbottompicker.TedBottomPicker;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import gun0912.tedbottompicker.TedBottomPicker;
 
 
 public class EditActivity<Disposable> extends AppCompatActivity {
     private EditText mEditName;
 //    private ImageButton mImagePerson;
     private int mItem = -1; //인덱스
-    private Button mButton;
+    private ImageButton mButton;
     ImageView btnSave;
 //    ImageButton imagePerson;
 
@@ -286,7 +278,7 @@ public class EditActivity<Disposable> extends AppCompatActivity {
     @SuppressLint("UseCheckPermission")
     private void setMultiShowButton() {
 
-        Button btnMultiShow = findViewById(R.id.buttonGall);
+        ImageButton btnMultiShow = findViewById(R.id.buttonGall);
         btnMultiShow.setOnClickListener(view -> {
 
             PermissionListener permissionlistener = new PermissionListener() {

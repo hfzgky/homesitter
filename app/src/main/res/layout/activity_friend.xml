@@ -111,11 +111,11 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="135dp"
-        android:layout_height="38dp"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
         android:layout_marginBottom="8dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/listView"
@@ -127,12 +127,13 @@
 
         <ImageButton
             android:id="@+id/imageButtonAdd"
-            android:layout_width="30dp"
+            android:layout_width="38dp"
             android:layout_height="match_parent"
             android:background="#00FFFFFF"
             android:onClick="onClickAdd"
-            android:scaleType="fitCenter"
+            android:scaleType="centerInside"
             app:srcCompat="@drawable/plus" />
+
         <Space
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -140,7 +141,7 @@
 
         <ImageButton
             android:id="@+id/imageButtonEdit"
-            android:layout_width="30dp"
+            android:layout_width="36dp"
             android:layout_height="match_parent"
             android:background="#00FFFFFF"
             android:onClick="onClickEdit"
@@ -154,7 +155,7 @@
 
         <ImageButton
             android:id="@+id/imageButtonDel"
-            android:layout_width="30dp"
+            android:layout_width="36dp"
             android:layout_height="match_parent"
             android:background="#00FFFFFF"
             android:onClick="onClickDel"
