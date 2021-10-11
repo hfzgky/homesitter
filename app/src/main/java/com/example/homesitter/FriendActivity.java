@@ -1,22 +1,15 @@
 package com.example.homesitter;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.icu.text.IDNA;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.SearchView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
-import com.google.android.material.snackbar.Snackbar;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -65,7 +58,7 @@ public class FriendActivity extends AppCompatActivity {
     public void onClickEdit(View v) {
         //선택된 항목이 없을 경우
         if(mISelectedItem == -1) {
-            Snackbar.make(v, "수정할 항목을 선택해주세요. ", Snackbar.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "수정할 항목을 선택해주세요. ", Toast.LENGTH_SHORT).show();
             // 선택된 항목이 없음을 토스트창으로 알려줌
             return; //종료
         }
@@ -87,7 +80,7 @@ public class FriendActivity extends AppCompatActivity {
         count = mSAdapter.getCount() ;
 
         if(mISelectedItem == -1) {
-            Snackbar.make(v, "삭제할 항목을 선택해주세요. ", Snackbar.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "삭제할 항목을 선택해주세요. ", Toast.LENGTH_SHORT).show();
             return; //종료
         }
 

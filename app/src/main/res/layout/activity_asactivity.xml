@@ -7,23 +7,55 @@
     tools:context=".ASActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="15dp"
+        android:paddingTop="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.024">
+
+        <ImageButton
+            android:id="@+id/imageButtonDel"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="#00FFFFFF"
+            android:onClick="onClickASClose"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/back" />
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:layout_above="@+id/button"
+        android:layout_height="400dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginStart="15dp"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="130dp"
-        android:layout_marginEnd="14dp"
-        android:layout_marginRight="14dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="130dp"
+        android:gravity="center_vertical"
         android:orientation="vertical"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp">
+        android:paddingHorizontal="25dp">
 
         <TextView
             android:id="@+id/textView"
@@ -80,29 +112,10 @@
             android:lineSpacingExtra="5dp"
             android:text="☎  02-365-365\n📧  365homesitter@gmail.com"
             android:textColor="@color/colorPrimary"
-            android:textSize="13sp" />
+            android:textSize="15sp" />
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="159dp"
-        android:layout_marginLeft="160dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="161dp"
-        android:layout_marginRight="160dp"
-        android:layout_marginBottom="100dp"
-        android:background="#FFFFFF"
-        android:onClick="onClickASClose"
-        android:text="닫기" />
     <!--  android:background="@drawable/shape_line_as" -->
 
 
