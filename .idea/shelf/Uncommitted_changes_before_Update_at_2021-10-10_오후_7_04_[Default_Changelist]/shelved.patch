@@ -1,0 +1,46 @@
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    package=\"com.example.homesitter\"\r\n    android:installLocation=\"preferExternal\" >\r\n\r\n    <uses-permission android:name=\"android.permission.INTERNET\" />\r\n    <uses-permission android:name=\"android.permission.DIAL_PHONE\" />\r\n    <uses-permission android:name=\"android.permission.WAKE_LOCK\" />\r\n\r\n    <application\r\n        android:allowBackup=\"true\"\r\n        android:icon=\"@drawable/appicon\"\r\n        android:label=\"@string/app_name\"\r\n        android:roundIcon=\"@drawable/appiconround\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/AppTheme\" >\r\n        <activity\r\n            android:name=\".VideoActivity\"\r\n            android:exported=\"true\" />\r\n        <activity\r\n            android:name=\".LoadingActivity\"\r\n            android:exported=\"true\" >\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n        <activity\r\n            android:name=\".LoginActivity\"\r\n            android:exported=\"true\" >\r\n        </activity>\r\n        <activity\r\n            android:name=\".InfoActivity\"\r\n            android:exported=\"true\" />\r\n        <activity\r\n            android:name=\".ASActivity\"\r\n            android:exported=\"true\" />\r\n        <activity\r\n            android:name=\".EditActivity\"\r\n            android:exported=\"true\" />\r\n        <activity android:name=\".FriendActivity\" />\r\n        <activity android:name=\".ClipActivity\" />\r\n        <activity android:name=\".PreferenceScreen\"/>\r\n        <activity android:name=\".MainActivity\" />\r\n\r\n        <service\r\n            android:name=\".PushNotificationService\"\r\n            android:exported=\"false\" >\r\n            <intent-filter>\r\n                <action android:name=\"com.google.firebase.MESSAGING_EVENT\" />\r\n            </intent-filter>\r\n        </service>\r\n    </application>\r\n\r\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+--- a/app/src/main/AndroidManifest.xml	(revision 36aac6ee8855a03be82b07256f5d852ef194f93b)
++++ b/app/src/main/AndroidManifest.xml	(date 1633663732681)
+@@ -14,9 +14,7 @@
+         android:roundIcon="@drawable/appiconround"
+         android:supportsRtl="true"
+         android:theme="@style/AppTheme" >
+-        <activity
+-            android:name=".VideoActivity"
+-            android:exported="true" />
++
+         <activity
+             android:name=".LoadingActivity"
+             android:exported="true" >
+Index: .idea/deploymentTargetDropDown.xml
+===================================================================
+diff --git a/.idea/deploymentTargetDropDown.xml b/.idea/deploymentTargetDropDown.xml
+deleted file mode 100644
+--- a/.idea/deploymentTargetDropDown.xml	(revision 36aac6ee8855a03be82b07256f5d852ef194f93b)
++++ /dev/null	(revision 36aac6ee8855a03be82b07256f5d852ef194f93b)
+@@ -1,17 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="deploymentTargetDropDown">
+-    <targetSelectedWithDropDown>
+-      <Target>
+-        <type value="QUICK_BOOT_TARGET" />
+-        <deviceKey>
+-          <Key>
+-            <type value="VIRTUAL_DEVICE_PATH" />
+-            <value value="C:\Users\M\.android\avd\Pixel_4_API_30.avd" />
+-          </Key>
+-        </deviceKey>
+-      </Target>
+-    </targetSelectedWithDropDown>
+-    <timeTargetWasSelectedWithDropDown value="2021-10-07T05:53:34.734275200Z" />
+-  </component>
+-</project>
+\ No newline at end of file

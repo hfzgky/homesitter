@@ -1,0 +1,104 @@
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_2021-09-26__3_54__Default_Changelist_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_2021-09-26__3_54__Default_Changelist_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_2021-09-26__3_54__Default_Changelist_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_2021-09-26__3_54__Default_Changelist_.xml	
++++ /dev/null	
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_2021-09-26_오후_3_54_[Default_Changelist]" date="1632639302589" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-09-26_오후_3_54_[Default_Changelist]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 2021-09-26 오후 3:54 [Default Changelist]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_2021-09-26_오후_3_54_[Default_Changelist]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_2021-09-26_오후_3_54_[Default_Changelist]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_2021-09-26_오후_3_54_[Default_Changelist]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_2021-09-26_오후_3_54_[Default_Changelist]/shelved.patch	
++++ /dev/null	
+@@ -1,85 +0,0 @@
+-Index: .idea/misc.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"DesignSurface\">\r\n    <option name=\"filePathToZoomLevelMap\">\r\n      <map>\r\n        <entry key=\"..\\:/Users/M/AndroidStudioProjects/home/app/src/main/res/drawable-v24/ic_launcher_foreground.xml\" value=\"0.35625\" />\r\n        <entry key=\"..\\:/Users/M/AndroidStudioProjects/home/app/src/main/res/drawable/ic_launcher_background.xml\" value=\"0.35625\" />\r\n        <entry key=\"..\\:/Users/M/AndroidStudioProjects/home/app/src/main/res/layout/activity_clip.xml\" value=\"0.18931159420289856\" />\r\n        <entry key=\"..\\:/Users/M/AndroidStudioProjects/home/app/src/main/res/layout/activity_friend.xml\" value=\"0.18931159420289856\" />\r\n        <entry key=\"..\\:/Users/M/AndroidStudioProjects/home/app/src/main/res/layout/activity_main.xml\" value=\"0.20244565217391305\" />\r\n        <entry key=\"..\\:/Users/M/AndroidStudioProjects/home/app/src/main/res/xml/root_preferences.xml\" value=\"0.3359375\" />\r\n        <entry key=\"..\\:/Users/M/AndroidStudioProjects/home2/app/src/main/res/layout/activity_clip.xml\" value=\"0.3359375\" />\r\n        <entry key=\"..\\:/Users/M/AndroidStudioProjects/home2/app/src/main/res/layout/activity_edit.xml\" value=\"0.3342391304347826\" />\r\n        <entry key=\"..\\:/Users/M/AndroidStudioProjects/home2/app/src/main/res/layout/activity_friend.xml\" value=\"0.3359375\" />\r\n        <entry key=\"..\\:/Users/M/AndroidStudioProjects/home2/app/src/main/res/layout/activity_main.xml\" value=\"0.18\" />\r\n        <entry key=\"..\\:/Users/M/AndroidStudioProjects/home2/app/src/main/res/layout/list_item.xml\" value=\"0.3342391304347826\" />\r\n        <entry key=\"..\\:/Users/M/AndroidStudioProjects/home3/app/src/main/res/layout/activity_clip.xml\" value=\"0.3359375\" />\r\n        <entry key=\"..\\:/Users/M/AndroidStudioProjects/home3/app/src/main/res/layout/activity_edit.xml\" value=\"0.3359375\" />\r\n        <entry key=\"..\\:/Users/M/AndroidStudioProjects/home3/app/src/main/res/layout/activity_friend.xml\" value=\"0.3359375\" />\r\n        <entry key=\"..\\:/Users/M/AndroidStudioProjects/home3/app/src/main/res/layout/activity_main.xml\" value=\"0.3359375\" />\r\n        <entry key=\"..\\:/Users/M/AndroidStudioProjects/home3/app/src/main/res/layout/list_item.xml\" value=\"0.3359375\" />\r\n        <entry key=\"..\\:/Users/ryd10/AndroidStudioProjects/home3/app/src/main/res/drawable/shape_line.xml\" value=\"0.1\" />\r\n        <entry key=\"..\\:/Users/ryd10/AndroidStudioProjects/home3/app/src/main/res/drawable/shape_line_as.xml\" value=\"0.1\" />\r\n        <entry key=\"..\\:/Users/ryd10/AndroidStudioProjects/home3/app/src/main/res/layout/activity_asactivity.xml\" value=\"0.264\" />\r\n        <entry key=\"..\\:/Users/ryd10/AndroidStudioProjects/home3/app/src/main/res/layout/activity_friend.xml\" value=\"0.1\" />\r\n        <entry key=\"..\\:/Users/ryd10/AndroidStudioProjects/home3/app/src/main/res/layout/activity_info.xml\" value=\"0.13645833333333332\" />\r\n        <entry key=\"..\\:/Users/ryd10/AndroidStudioProjects/home3/app/src/main/res/layout/activity_main.xml\" value=\"0.1\" />\r\n        <entry key=\"..\\:/Users/ryd10/AndroidStudioProjects/home3/app/src/main/res/layout/list_item.xml\" value=\"0.1\" />\r\n        <entry key=\"..\\:/Users/ryd10/AndroidStudioProjects/home3/app/src/main/res/layout/prefctg.xml\" value=\"0.25885416666666666\" />\r\n        <entry key=\"..\\:/Users/ryd10/AndroidStudioProjects/home3/app/src/main/res/xml/preferences.xml\" value=\"0.4\" />\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_11\" default=\"true\" project-jdk-name=\"1.8\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\r\n  </component>\r\n  <component name=\"ProjectType\">\r\n    <option name=\"id\" value=\"Android\" />\r\n  </component>\r\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/misc.xml b/.idea/misc.xml
+---- a/.idea/misc.xml	(revision 41cbefc879ad4dfa471a4a232029ab18f5bd4705)
+-+++ b/.idea/misc.xml	(date 1632630865470)
+-@@ -27,7 +27,7 @@
+-         <entry key="..\:/Users/ryd10/AndroidStudioProjects/home3/app/src/main/res/layout/activity_main.xml" value="0.1" />
+-         <entry key="..\:/Users/ryd10/AndroidStudioProjects/home3/app/src/main/res/layout/list_item.xml" value="0.1" />
+-         <entry key="..\:/Users/ryd10/AndroidStudioProjects/home3/app/src/main/res/layout/prefctg.xml" value="0.25885416666666666" />
+--        <entry key="..\:/Users/ryd10/AndroidStudioProjects/home3/app/src/main/res/xml/preferences.xml" value="0.4" />
+-+        <entry key="..\:/Users/ryd10/AndroidStudioProjects/home3/app/src/main/res/xml/preferences.xml" value="0.264" />
+-       </map>
+-     </option>
+-   </component>
+-Index: app/src/main/res/xml/preferences.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<PreferenceScreen xmlns:android=\"http://schemas.android.com/apk/res/android\">\r\n\r\n    <PreferenceCategory android:title=\"환경설정\" android:layout=\"@layout/prefctg\">\r\n        <SwitchPreference\r\n            android:defaultValue=\"true\"\r\n            android:key=\"alert\"\r\n            android:title=\"알림 on/off\" />\r\n        <ListPreference\r\n            android:dependency=\"alert\"\r\n            android:entries=\"@array/reply_entries\"\r\n            android:entryValues=\"@array/reply_values\"\r\n            android:key=\"time\"\r\n            android:summary=\"설정한 시간보다 외부인이 오래 머무를 경우 알려드려요.\"\r\n            android:title=\"시간 설정\" />\r\n    </PreferenceCategory>\r\n\r\n    <PreferenceCategory android:title=\"A/S 안내\" android:layout=\"@layout/prefctg\">\r\n        <Preference android:title=\"A/S 안내\"\r\n            android:summary=\"안내를 보려면 클릭하세요.\">\r\n            <intent\r\n                android:targetClass=\"com.example.homesitter.ASActivity\"\r\n                android:targetPackage=\"com.example.homesitter\" />\r\n        </Preference>\r\n    </PreferenceCategory>\r\n\r\n</PreferenceScreen>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/app/src/main/res/xml/preferences.xml b/app/src/main/res/xml/preferences.xml
+---- a/app/src/main/res/xml/preferences.xml	(revision 41cbefc879ad4dfa471a4a232029ab18f5bd4705)
+-+++ b/app/src/main/res/xml/preferences.xml	(date 1632639283266)
+-@@ -13,6 +13,15 @@
+-             android:key="time"
+-             android:summary="설정한 시간보다 외부인이 오래 머무를 경우 알려드려요."
+-             android:title="시간 설정" />
+-+   <!--     <EditTextPreference
+-+            android:defaultValue="112"
+-+            android:key="edit_text_preference_1"
+-+            android:selectAllOnFocus="true"
+-+            android:singleLine="true"
+-+            android:inputType="number"
+-+            android:id="@+id/emergency"
+-+            android:summary="긴급 발신 전화번호를 수정해요."
+-+            android:title="긴급 전화번호 수정" />       -->
+-     </PreferenceCategory>
+- 
+-     <PreferenceCategory android:title="A/S 안내" android:layout="@layout/prefctg">
+-Index: app/src/main/java/com/example/homesitter/PreferenceScreen.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>package com.example.homesitter;\r\n\r\nimport android.content.SharedPreferences;\r\nimport android.os.Bundle;\r\nimport android.preference.PreferenceActivity;\r\nimport android.widget.Toast;\r\n\r\nimport androidx.preference.PreferenceManager;\r\n\r\npublic class PreferenceScreen extends PreferenceActivity {\r\n\r\n        @Override\r\n        protected void onCreate(Bundle savedInstanceState) {\r\n                super.onCreate(savedInstanceState);\r\n                addPreferencesFromResource(R.xml.preferences);\r\n        }\r\n}
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/app/src/main/java/com/example/homesitter/PreferenceScreen.java b/app/src/main/java/com/example/homesitter/PreferenceScreen.java
+---- a/app/src/main/java/com/example/homesitter/PreferenceScreen.java	(revision 41cbefc879ad4dfa471a4a232029ab18f5bd4705)
+-+++ b/app/src/main/java/com/example/homesitter/PreferenceScreen.java	(date 1632637128352)
+-@@ -1,11 +1,7 @@
+- package com.example.homesitter;
+- 
+--import android.content.SharedPreferences;
+- import android.os.Bundle;
+- import android.preference.PreferenceActivity;
+--import android.widget.Toast;
+--
+--import androidx.preference.PreferenceManager;
+- 
+- public class PreferenceScreen extends PreferenceActivity {
+- 
+-Index: app/src/main/java/com/example/homesitter/MainActivity.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>package com.example.homesitter;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.appcompat.app.AlertDialog;\r\nimport androidx.appcompat.app.AppCompatActivity;\r\nimport androidx.core.app.ActivityCompat;\r\nimport androidx.preference.Preference;\r\n\r\nimport android.Manifest;\r\nimport android.annotation.SuppressLint;\r\nimport android.content.DialogInterface;\r\nimport android.content.Intent;\r\nimport android.content.pm.ActivityInfo;\r\nimport android.content.pm.PackageManager;\r\nimport android.graphics.Color;\r\nimport android.net.Uri;\r\nimport android.os.Build;\r\nimport android.os.Bundle;\r\nimport android.os.Handler;\r\nimport android.os.Message;\r\nimport android.os.SystemClock;\r\nimport android.view.Gravity;\r\nimport android.view.View;\r\nimport android.view.WindowManager;\r\nimport android.widget.LinearLayout;\r\nimport android.widget.ListView;\r\nimport android.widget.SimpleAdapter;\r\nimport android.widget.TextView;\r\nimport android.widget.Toast;\r\n\r\nimport java.text.SimpleDateFormat;\r\nimport java.util.Calendar;\r\nimport java.util.Date;\r\n\r\npublic class MainActivity extends AppCompatActivity{\r\n    /*    private Thread mWorker = null;\r\n        private LinearLayout mViewLayout= null;\r\n        private TextView mTimeView = null;\r\n        private TextView mDayView = null;\r\n        TextView clockTextView ;\r\n        private boolean mRun = false;   */\r\n    private TextView mDayView;\r\n    private TextView mTimeView;\r\n//    private Handler mHandler ;\r\n\r\n    public void onClickClip(View view) {\r\n        Intent intent = new Intent(this, ClipActivity.class);\r\n        startActivity(intent);\r\n        finish();\r\n    }\r\n\r\n    public void onClickFriends(View view) {\r\n        Intent intent = new Intent(this, FriendActivity.class);\r\n        startActivity(intent);\r\n        finish();\r\n    }\r\n\r\n    public void onClickCall(View view) {\r\n        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse(\"tel:112\"));\r\n        startActivity(intent);\r\n    }\r\n\r\n    public void onClickPreference(View view) {\r\n        Intent intent = new Intent(this, PreferenceScreen.class);\r\n        intent.putExtra(\"item\", -1);\r\n        startActivityForResult(intent, 200);\r\n    }\r\n\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_main);\r\n\r\n        Handler mHandler = new Handler(new Handler.Callback() {\r\n            @SuppressLint(\"DefaultLocale\")\r\n            @Override\r\n            public boolean handleMessage(Message msg) {\r\n                Calendar cal = Calendar.getInstance() ;\r\n                int yy = cal.get(Calendar.YEAR);\r\n                int mm = cal.get(Calendar.MONTH)+1;\r\n                int dd = cal.get(Calendar.DAY_OF_MONTH);\r\n                int h = cal.get(Calendar.HOUR_OF_DAY);\r\n                int m = cal.get(Calendar.MINUTE);\r\n                int s = cal.get(Calendar.SECOND);\r\n\r\n                mDayView = (TextView)findViewById(R.id.day_view);\r\n                mDayView.setGravity(Gravity.BOTTOM);\r\n                mDayView.setTextSize(18);\r\n                mDayView.setTextColor(Color.BLACK);\r\n                mDayView.setText(String.format(\"\"));\r\n\r\n                mTimeView = (TextView)findViewById(R.id.time_view);\r\n                mTimeView.setTextSize(18);\r\n                mTimeView.setTextColor(Color.BLACK);\r\n                mTimeView.setText(String.format(\"\"));\r\n\r\n                mDayView.setText(String.format(\"%04d-%02d-%02d\",yy,mm,dd));\r\n                mTimeView.setText(String.format(\"%02d:%02d:%02d\",h,m,s));\r\n\r\n                return true;\r\n            }\r\n        }) ;\r\n\r\n        class NewRunnable implements Runnable {\r\n            @Override\r\n            public void run() {\r\n                while (true) {\r\n\r\n                    try {\r\n                        Thread.sleep(1000);\r\n                    } catch (Exception e) {\r\n                        e.printStackTrace() ;\r\n                    }\r\n\r\n                    mHandler.sendEmptyMessage(0) ;\r\n                }\r\n            }\r\n        }\r\n\r\n        NewRunnable nr = new NewRunnable() ;\r\n        Thread t = new Thread(nr) ;\r\n        t.start() ;\r\n    }\r\n\r\n\r\n/*        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);\r\n        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);\r\n\r\n        mViewLayout = (LinearLayout) findViewById(R.id.view_layout);\r\n\r\n        mDayView = (TextView)findViewById(R.id.day_view);\r\n        mDayView.setGravity(Gravity.BOTTOM);\r\n        mDayView.setTextSize(18);\r\n        mDayView.setTextColor(Color.LTGRAY);\r\n        mDayView.setText(String.format(\"\"));\r\n\r\n        mTimeView = (TextView)findViewById(R.id.time_view);\r\n        mTimeView.setTextSize(30);\r\n        mTimeView.setTextColor(Color.LTGRAY);\r\n        mTimeView.setText(String.format(\"\"));\r\n\r\n        start();\r\n\r\n    }\r\n\r\n    @Override\r\n    public void onBackPressed() {\r\n        super.onBackPressed();\r\n        stop();\r\n    }\r\n\r\n    @Override\r\n    protected void onDestroy() {\r\n        super.onDestroy();\r\n        stop();\r\n    }\r\n\r\n    void start()\r\n    {\r\n        if(mWorker!= null)\r\n        {\r\n            stop();\r\n        }\r\n\r\n        mRun = true;\r\n        mWorker =  new Thread(this);\r\n        mWorker.start();\r\n    }\r\n\r\n    void stop()\r\n    {\r\n        if(mWorker != null && mWorker.isAlive())\r\n        {\r\n            mRun = false;\r\n            mWorker.interrupt();\r\n            wait(1000);\r\n            mWorker = null;\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public void run() {\r\n\r\n\r\n        while(mRun)\r\n        {\r\n            Calendar calendar = Calendar.getInstance();\r\n\r\n            int yy = calendar.get(Calendar.YEAR);\r\n            int mm = calendar.get(Calendar.MONTH)+1;\r\n            int dd = calendar.get(Calendar.DAY_OF_MONTH);\r\n            int h = calendar.get(Calendar.HOUR_OF_DAY);\r\n            int m = calendar.get(Calendar.MINUTE);\r\n            int s = calendar.get(Calendar.SECOND);\r\n\r\n            mDayView.setText(String.format(\"%04d-%02d-%02d\",yy,mm,dd));\r\n            mTimeView.setText(String.format(\"%02d:%02d:%02d\",h,m,s));\r\n\r\n            wait(200);\r\n        }\r\n    }\r\n\r\n    private void wait(int ms) {\r\n        SystemClock.sleep(ms);\r\n    }           */\r\n\r\n}
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/app/src/main/java/com/example/homesitter/MainActivity.java b/app/src/main/java/com/example/homesitter/MainActivity.java
+---- a/app/src/main/java/com/example/homesitter/MainActivity.java	(revision 41cbefc879ad4dfa471a4a232029ab18f5bd4705)
+-+++ b/app/src/main/java/com/example/homesitter/MainActivity.java	(date 1632637176611)
+-@@ -41,6 +41,7 @@
+-         private boolean mRun = false;   */
+-     private TextView mDayView;
+-     private TextView mTimeView;
+-+
+- //    private Handler mHandler ;
+- 
+-     public void onClickClip(View view) {
