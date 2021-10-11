@@ -162,23 +162,23 @@ public class EditActivity<Disposable> extends AppCompatActivity {
                     StorageReference storageRef;
 //                    String sName = mEditName.getText().toString();
                     FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
-                    DatabaseReference childreference=firebaseDatabase.getReference().child("00gpwls00/PhotoLink/"+name);
+                    DatabaseReference childreference=firebaseDatabase.getReference().child("cctv/PhotoLink/"+name);
                     ValueEventListener valueEventListener = new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                             if(dataSnapshot.child("UpdateCount").getValue()!=null) {
                                 UpdateCount = dataSnapshot.child("UpdateCount").getValue(Integer.class);
-                                firebaseDatabase.getReference().child("00gpwls00/PhotoLink/" + name + "/" + "UpdateCount").setValue(UpdateCount + i - 1);
+                                firebaseDatabase.getReference().child("cctv/PhotoLink/" + name + "/" + "UpdateCount").setValue(UpdateCount + i - 1);
                             }else{
                                 DownCount=0;
                                 UpdateCount=0;
                                 oneface=0;
                                 //UpdateCount = dataSnapshot.getValue(Integer.class);
                                 System.out.println("UpdateCount:"+UpdateCount);
-                                firebaseDatabase.getReference().child("00gpwls00/PhotoLink/"+name+"/"+"UpdateCount").setValue(UpdateCount+i-1);
-                                firebaseDatabase.getReference().child("00gpwls00/PhotoLink/"+name+"/"+"DownCount").setValue(DownCount);
-                                firebaseDatabase.getReference().child("00gpwls00/PhotoLink/"+name+"/"+"oneface").setValue(oneface);
+                                firebaseDatabase.getReference().child("cctv/PhotoLink/"+name+"/"+"UpdateCount").setValue(UpdateCount+i-1);
+                                firebaseDatabase.getReference().child("cctv/PhotoLink/"+name+"/"+"DownCount").setValue(DownCount);
+                                firebaseDatabase.getReference().child("cctv/PhotoLink/"+name+"/"+"oneface").setValue(oneface);
 
                             }
                         }
@@ -205,7 +205,7 @@ public class EditActivity<Disposable> extends AppCompatActivity {
 
                         //storage 주소와 폴더 파일명을 지정해 준다.
                         /*storageRef = storage.getReferenceFromUrl("gs://aicctv-8f5ac.appspot.com").child("/00gpwls00/Photo/"+name+"/"+filename);*/
-                        storageRef = storage.getReferenceFromUrl("gs://homesitter-54d69.appspot.com").child("/00gpwls00/Photo/"+name+"/"+filename);
+                        storageRef = storage.getReferenceFromUrl("gs://homesitter-54d69.appspot.com").child("/cctv/Photo/"+name+"/"+filename);
 
                         storageRef.putFile(uri)
                                 //성공시
@@ -220,7 +220,7 @@ public class EditActivity<Disposable> extends AppCompatActivity {
                                             public void onSuccess(Uri uri) {
                                                 Log.d("★★★★★★★★11111", uri.toString());
                                                 String imgurl=uri.toString();
-                                                firebaseDatabase.getReference().child("/00gpwls00/PhotoLink/"+name+"/"+urlname).setValue(imgurl);
+                                                firebaseDatabase.getReference().child("/cctv/PhotoLink/"+name+"/"+urlname).setValue(imgurl);
 
                                             }
                                         }).toString();
