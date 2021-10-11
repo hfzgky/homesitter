@@ -26,6 +26,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.request.RequestOptions;
+import com.google.android.gms.auth.api.signin.internal.Storage;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.FirebaseApp;
@@ -152,6 +153,7 @@ public class EditActivity<Disposable> extends AppCompatActivity {
                     progressDialog.show();
                     FirebaseStorage storage = FirebaseStorage.getInstance();
                     StorageReference storageRef;
+                    storageRef = FirebaseStorage.getInstance().getReference();
 //                    String sName = mEditName.getText().toString();
                     FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
                     DatabaseReference childreference=firebaseDatabase.getReference().child("cctv/PhotoLink/"+name);
@@ -192,12 +194,15 @@ public class EditActivity<Disposable> extends AppCompatActivity {
                         //Unique한 파일명을 만들자.
 
                         Date now = new Date();
-                        filename = formatter.format(now) + "_" + i + ".png";
+                        //filename = formatter.format(now) + "_" + i + ".png";
                         urlname = formatter.format(now) + "_" + i;
+
+                        final String imagedata = "image/" + sName + "/" + i + ".png";
+                        StorageReference data = storageRef.child(imagedata);
 
                         //storage 주소와 폴더 파일명을 지정해 준다.
                         /*storageRef = storage.getReferenceFromUrl("gs://aicctv-8f5ac.appspot.com").child("/00gpwls00/Photo/"+name+"/"+filename);*/
-                        storageRef = storage.getReferenceFromUrl("gs://homesitter-54d69.appspot.com").child("/cctv/Photo/"+name+"/"+filename);
+                        storageRef = storage.getReferenceFromUrl("gs://homesitter-54d69.appspot.com").child(imagedata);
 
                         storageRef.putFile(uri)
                                 //성공시
