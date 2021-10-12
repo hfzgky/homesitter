@@ -53,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
     int delete_count_link = 0;
     int delete_count_link2 = 0;
 
+
+
     @Override
     public void onBackPressed() {
         if (System.currentTimeMillis()>backKeyPressedTime + 2500){
