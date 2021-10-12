@@ -13,6 +13,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.MediaController;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import androidx.annotation.NonNull;
@@ -34,6 +35,8 @@ import java.io.File;
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
+    private long backKeyPressedTime = 0;
+    private Toast toast;
     private TextView mDayView;
     private TextView mTimeView;
     FirebaseStorage storage2;
@@ -49,6 +52,19 @@ public class MainActivity extends AppCompatActivity {
     int delete_count = 0;
     int delete_count_link = 0;
     int delete_count_link2 = 0;
+
+    @Override
+    public void onBackPressed() {
+        if (System.currentTimeMillis()>backKeyPressedTime + 2500){
+            backKeyPressedTime = System.currentTimeMillis();
+            toast = Toast.makeText(this, "뒤로 가기 버튼을 한 번 더 누르면 종료됩니다.", Toast.LENGTH_LONG);
+            toast.show();
+            return;
+        }
+        if (System.currentTimeMillis() <= backKeyPressedTime + 2500) {
+            finish();
+        }
+    }
 
     public void onClickClip(View view) {
         Intent intent = new Intent(this, ClipActivity.class);
@@ -77,6 +93,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+      /*  ImageButton btnBack;
+        btnBack = findViewById(R.id.imageButtonFriends);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });*/
+
         videoView = (VideoView) findViewById(R.id.videoView);
         firebaseDatabase = FirebaseDatabase.getInstance();
         childreference = firebaseDatabase.getReference().child("cctv/VideoLink/");

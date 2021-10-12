@@ -21,16 +21,31 @@ public class FriendActivity extends AppCompatActivity {
     private SimpleAdapter mSAdapter;
     private ArrayList<HashMap<String,String>> mListData; // 여러개의 정보를 저장하기 위해 HashMap 객체 사용
     private int mISelectedItem = -1;    //인덱스 값 저장, 현재 선택된 항목 없음
+    private long backKeyPressedTime = 0;
+    private Toast toast;
+
+    @Override
+    public void onBackPressed() {
+        if (System.currentTimeMillis()>backKeyPressedTime + 2500){
+            backKeyPressedTime = System.currentTimeMillis();
+            toast = Toast.makeText(this, "뒤로 가기 버튼을 한 번 더 누르면 종료됩니다.", Toast.LENGTH_LONG);
+            toast.show();
+            return;
+        }
+        if (System.currentTimeMillis() <= backKeyPressedTime + 2500) {
+            finish();
+        }
+    }
 
     public void onClickMain(View view) {
         Intent intent = new Intent(this, MainActivity.class);
-        intent.putExtra("item",-1);
+        intent.putExtra("item", -1);
         startActivityForResult(intent, 200);
     }
 
     public void onClickClip(View view) {
         Intent intent = new Intent(this, ClipActivity.class);
-        intent.putExtra("item",-1);
+        intent.putExtra("item", -1);
         startActivityForResult(intent, 200);
     }
 
@@ -58,7 +73,7 @@ public class FriendActivity extends AppCompatActivity {
     public void onClickEdit(View v) {
         //선택된 항목이 없을 경우
         if(mISelectedItem == -1) {
-            Toast.makeText(getApplicationContext(), "수정할 항목을 선택해주세요. ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "수정할 항목을 선택해주세요.", Toast.LENGTH_SHORT).show();
             // 선택된 항목이 없음을 토스트창으로 알려줌
             return; //종료
         }
@@ -80,7 +95,7 @@ public class FriendActivity extends AppCompatActivity {
         count = mSAdapter.getCount() ;
 
         if(mISelectedItem == -1) {
-            Toast.makeText(getApplicationContext(), "삭제할 항목을 선택해주세요. ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "삭제할 항목을 선택해주세요.", Toast.LENGTH_SHORT).show();
             return; //종료
         }
 
