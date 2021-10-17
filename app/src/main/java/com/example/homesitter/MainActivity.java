@@ -19,13 +19,16 @@ import android.widget.VideoView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -35,6 +38,7 @@ import java.io.File;
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
+
     private long backKeyPressedTime = 0;
     private Toast toast;
     private TextView mDayView;
@@ -104,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });*/
+
 
         videoView = (VideoView) findViewById(R.id.videoView);
         firebaseDatabase = FirebaseDatabase.getInstance();
@@ -291,5 +296,8 @@ public class MainActivity extends AppCompatActivity {
             });
         }
     }
+
+
+
 
 }
