@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "969272980157",
+    "firebase_url": "https://homesitter-54d69-default-rtdb.firebaseio.com",
     "project_id": "homesitter-54d69",
     "storage_bucket": "homesitter-54d69.appspot.com"
   },
@@ -14,11 +15,35 @@
       },
       "oauth_client": [
         {
+          "client_id": "969272980157-16idnhcho3o1tbc2lsjbqaukc4hgodmo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.homesitter",
+            "certificate_hash": "3d0cf2544cd14fd19f83132845398f416f067a72"
+          }
+        },
+        {
+          "client_id": "969272980157-osb50faeafqk6pj70tqgmdhj3l113rlt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.homesitter",
+            "certificate_hash": "821837c75ec41ec8bb35ef7bec386eaf4415e00a"
+          }
+        },
+        {
           "client_id": "969272980157-qn90ukg17ic0egj6dppk91844lsnqd4e.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.homesitter",
             "certificate_hash": "a05a10ac4a809559bd445d7cb982c8c4a2175f06"
+          }
+        },
+        {
+          "client_id": "969272980157-tm97ju1vevrvfftbpehb9257a6icl7d8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.homesitter",
+            "certificate_hash": "717227f847f942ba7ec8160105a8bf093354ab5a"
           }
         },
         {

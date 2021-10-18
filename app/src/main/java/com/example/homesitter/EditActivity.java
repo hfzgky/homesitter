@@ -200,7 +200,7 @@ public class EditActivity<Disposable> extends AppCompatActivity {
                         //filename = formatter.format(now) + "_" + i + ".png";
                         urlname = formatter.format(now) + "_" + i;
 
-                        final String imagedata = "image/" + sName + "/" + i + ".png";
+                        final String imagedata = "cctv/Photo/" + sName + "/" + i + ".png";
                         StorageReference data = storageRef.child(imagedata);
 
                         //storage 주소와 폴더 파일명을 지정해 준다.

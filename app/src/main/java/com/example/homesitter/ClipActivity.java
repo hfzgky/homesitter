@@ -56,12 +56,12 @@ public class ClipActivity extends AppCompatActivity {
         finish();
     }
 
-  /*  public void onClickFriends(View view) {
-        Intent intent = new Intent(this, FriendActivity.class);
-        startActivity(intent);
-        finish();
-    }
-*/
+    /*  public void onClickFriends(View view) {
+          Intent intent = new Intent(this, FriendActivity.class);
+          startActivity(intent);
+          finish();
+      }
+  */
     public void onClickPreference(View view) {
         Intent intent = new Intent(this, PreferenceScreen.class);
         intent.putExtra("item", -1);
