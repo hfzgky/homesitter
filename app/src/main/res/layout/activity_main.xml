@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TableRow
+<!--    <TableRow
         android:id="@+id/tableRow"
         android:layout_width="0dp"
         android:layout_height="270dp"
@@ -14,7 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/videoView"
-        app:layout_constraintVertical_bias="0.5">
+        app:layout_constraintVertical_bias="0.3">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -30,9 +30,16 @@
                 android:layout_weight="1"
                 android:background="#00FFFFFF"
                 android:onClick="onClickClip"
-                android:padding="15dp"
+                android:padding="18dp"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/clip" />
+
+            <View
+                android:id="@+id/view6"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginHorizontal="20dp"
+                android:background="#939393" />
 
             <ImageButton
                 android:id="@+id/imageButtonCall"
@@ -42,10 +49,30 @@
                 android:layout_weight="1"
                 android:background="#00FFFFFF"
                 android:onClick="onClickCall"
-                android:padding="15dp"
+                android:padding="18dp"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/call" />
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <View
+                android:id="@+id/view4"
+                android:layout_width="2dp"
+                android:layout_height="95dp"
+                android:layout_marginVertical="20dp"
+                android:background="#939393" />
+
+            <View
+                android:id="@+id/view5"
+                android:layout_width="2dp"
+                android:layout_height="95dp"
+                android:layout_marginTop="20dp"
+                android:background="#939393" />
         </LinearLayout>
 
         <LinearLayout
@@ -62,10 +89,17 @@
                 android:layout_weight="1"
                 android:background="#00FFFFFF"
                 android:onClick="onClickFriends"
-                android:padding="15dp"
+                android:padding="18dp"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/list"
                 app:tint="#000000" />
+
+            <View
+                android:id="@+id/view7"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginHorizontal="20dp"
+                android:background="#939393" />
 
             <ImageButton
                 android:id="@+id/imageButtonSettings"
@@ -75,23 +109,155 @@
                 android:layout_weight="1"
                 android:background="#00FFFFFF"
                 android:onClick="onClickPreference"
-                android:padding="15dp"
+                android:padding="18dp"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/settings" />
 
         </LinearLayout>
     </TableRow>
+-->
+    <TableRow
+        android:id="@+id/tableRow"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/videoView"
+        app:layout_constraintVertical_bias="0.3">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/imageButtonCall"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="28dp"
+                android:paddingStart="40dp"
+                android:layout_weight="1"
+                android:background="#00FFFFFF"
+                android:onClick="onClickCall"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/call" />
+
+            <View
+                android:id="@+id/view6"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginStart="20dp"
+                android:background="#939393" />
+
+            <ImageButton
+                android:id="@+id/imageButtonFriends"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="28dp"
+                android:paddingStart="40dp"
+                android:layout_weight="1"
+                android:background="#00FFFFFF"
+                android:onClick="onClickFriends"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/list"
+                app:tint="#000000" />
+
+            <View
+                android:id="@+id/view7"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginStart="20dp"
+                android:background="#939393" />
+
+            <ImageButton
+                android:id="@+id/imageButtonSettings"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="28dp"
+                android:paddingStart="40dp"
+                android:layout_weight="1"
+                android:background="#00FFFFFF"
+                android:onClick="onClickPreference"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/settings" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/imageButtonCallz"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="28dp"
+                android:padding="10dp"
+                android:layout_marginEnd="110dp"
+                android:layout_weight="1"
+                android:background="#00FFFFFF"
+                android:onClick="onClickCall"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/callz" />
+
+            <View
+                android:id="@+id/view6z"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginEnd="30dp"
+                android:background="#939393" />
+
+            <ImageButton
+                android:id="@+id/imageButtonFriendsz"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="20dp"
+                android:padding="10dp"
+                android:layout_marginEnd="50dp"
+                android:layout_weight="1"
+                android:background="#00FFFFFF"
+                android:onClick="onClickFriends"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/frdz"
+                app:tint="#000000" />
+
+            <View
+                android:id="@+id/view7z"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginEnd="20dp"
+                android:background="#939393" />
+
+            <ImageButton
+                android:id="@+id/imageButtonSettingsz"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="20dp"
+                android:padding="10dp"
+                android:layout_marginEnd="50dp"
+                android:layout_weight="1"
+                android:background="#00FFFFFF"
+                android:onClick="onClickPreference"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/setz" />
+
+        </LinearLayout>
+    </TableRow>
     <LinearLayout
         android:id="@+id/view_layout"
         android:layout_width="308dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/videoView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6">
+        app:layout_constraintVertical_bias="0.93">
 
         <TextView
             android:id="@+id/day_view"
@@ -100,7 +266,12 @@
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:text="TextView"
-            android:textAlignment="center" />
+            android:textAlignment="viewEnd"
+            tools:ignore="RtlCompat" />
+
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/time_view"
@@ -109,7 +280,7 @@
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:text="TextView"
-            android:textAlignment="center" />
+            android:textAlignment="viewStart" />
     </LinearLayout>
 
     <VideoView
@@ -118,8 +289,20 @@
         android:layout_height="263dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.28" />
+        app:layout_constraintVertical_bias="0.309" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/videoView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3"
+        app:srcCompat="@drawable/appiconnegative" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
