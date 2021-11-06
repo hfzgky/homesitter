@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.View;
 import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -60,7 +61,7 @@ public class Video_each extends AppCompatActivity {
         FirebaseApp.initializeApp(this);
 
         videoView = (VideoView)findViewById(R.id.videoView);
-        textView= (TextView)findViewById(R.id.textview);
+        textView= (TextView)findViewById(R.id.textView);
         textView2= (TextView)findViewById(R.id.textView2);
         firebaseDatabase=FirebaseDatabase.getInstance();
         childreference=firebaseDatabase.getReference().child("cctv/videoLink/");
@@ -183,8 +184,9 @@ public class Video_each extends AppCompatActivity {
         }
 
     }
-
-
+    public void onClickCloseV(View view) {
+        finish();
+    }
 
 }
 

@@ -45,20 +45,13 @@ public class FriendActivity extends AppCompatActivity {
 
     public void onClickClip(View view) {
         Intent intent = new Intent(this, ClipActivity.class);
-        intent.putExtra("item", -1);
-        startActivityForResult(intent, 200);
+        startActivity(intent);
+        finish();
     }
 
     public void onClickPreference(View view) {
         Intent intent = new Intent(this, PreferenceScreen.class);
         intent.putExtra("item", -1);
-        startActivityForResult(intent, 200);
-    }
-
-    //이름 클릭 시
-    public void onClickInfo(View view) {
-        Intent intent= new Intent(getApplicationContext(), InfoActivity.class);
-        intent.putExtra("item",-1);
         startActivityForResult(intent, 200);
     }
 

@@ -1,11 +1,10 @@
 package com.example.homesitter;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
-import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class ASActivity extends AppCompatActivity {
 
@@ -16,7 +15,7 @@ public class ASActivity extends AppCompatActivity {
         setContentView(R.layout.activity_asactivity);
     }
 
-    public void onClickASClose(View view) {
+    public void onClickClose(View view) {
         finish();
     }
 }

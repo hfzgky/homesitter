@@ -31,6 +31,7 @@ public class ClipActivity extends AppCompatActivity {
     private int mISelectedItem = -1;    //인덱스 값 저장, 현재 선택된 항목 없음
     private ImageButton btnFrd;
 
+
     private ListView list;
     ArrayList<String> listdata;
     ArrayAdapter<String> adapter;
@@ -87,16 +88,6 @@ public class ClipActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
-
-        ImageButton btnBack;
-        btnBack = findViewById(R.id.imageButton4);
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
-
     }
 
     AdapterView.OnItemClickListener listener2= new AdapterView.OnItemClickListener() {
@@ -109,10 +100,13 @@ public class ClipActivity extends AppCompatActivity {
 
             //        +temp.substring(26,temp.length()-1);
 
+
             // String selected_item = (String) adapterView.getItemAtPosition(position);
             Intent intent10 = new Intent(getApplicationContext(), Video_each.class);
             intent10.putExtra("selected_item", selected_item);
             startActivity(intent10);
+
+
         }
     };
 
@@ -124,8 +118,8 @@ public class ClipActivity extends AppCompatActivity {
 
     public void onClickFriends(View view) {
         Intent intent = new Intent(this, FriendActivity.class);
-        intent.putExtra("item", -1);
-        startActivityForResult(intent, 200);
+        startActivity(intent);
+        finish();
     }
 
     public void onClickPreference(View view) {
