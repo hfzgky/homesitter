@@ -85,8 +85,7 @@
             android:background="#00FFFFFF"
             android:onClick="onClickFriends"
             android:scaleType="centerInside"
-            android:tint="#80818181"
-            app:srcCompat="@drawable/list" />
+            app:srcCompat="@drawable/friendsg" />
 
         <Space
             android:layout_width="match_parent"

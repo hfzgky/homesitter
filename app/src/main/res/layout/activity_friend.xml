@@ -87,8 +87,7 @@
             android:layout_weight="1"
             android:background="#FFFFFF"
             android:scaleType="centerInside"
-            android:tint="#000000"
-            app:srcCompat="@drawable/list" />
+            app:srcCompat="@drawable/friends" />
 
         <Space
             android:layout_width="match_parent"
