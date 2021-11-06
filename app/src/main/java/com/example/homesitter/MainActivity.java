@@ -34,6 +34,7 @@ import com.gun0912.tedpermission.util.ObjectUtils;
 import java.io.File;
 import java.util.Calendar;
 
+
 public class MainActivity extends AppCompatActivity {
     private long backKeyPressedTime = 0;
     private Toast toast;
@@ -113,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
             public boolean handleMessage(Message msg) {
                 Calendar cal = Calendar.getInstance();
                 int yy = cal.get(Calendar.YEAR);
-                int mm = cal.get(Calendar.MONTH) + 1;
+                int mm = cal.get(Calendar.MONTH)+1;
                 int dd = cal.get(Calendar.DAY_OF_MONTH);
                 int h = cal.get(Calendar.HOUR_OF_DAY);
                 int m = cal.get(Calendar.MINUTE);

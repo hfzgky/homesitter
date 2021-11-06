@@ -8,11 +8,12 @@
 
     <View
         android:id="@+id/view"
-        android:layout_width="110dp"
+        android:layout_width="90dp"
         android:layout_height="4dp"
         android:background="@color/colorPrimary"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.65"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/listView"
         app:layout_constraintVertical_bias="1.0" />
@@ -58,7 +59,7 @@
             android:tint="#80FFFFFF"
             app:srcCompat="@drawable/main" />
 
-   <!--     <Space
+        <Space
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1" />
@@ -72,7 +73,7 @@
             android:onClick="onClickClip"
             android:scaleType="centerInside"
             android:tint="#80FFFFFF"
-            app:srcCompat="@drawable/clip" />-->
+            app:srcCompat="@drawable/clip" />
 
         <Space
             android:layout_width="match_parent"
@@ -126,13 +127,14 @@
         android:id="@+id/listView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_margin="10dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginHorizontal="10dp"
         android:choiceMode="singleChoice"
         android:listSelector="@drawable/selected"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+        app:layout_constraintTop_toBottomOf="@+id/view2" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -140,7 +142,7 @@
         android:layout_height="38dp"
         android:layout_margin="20dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/listView"
+        app:layout_constraintBottom_toTopOf="@+id/view2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">

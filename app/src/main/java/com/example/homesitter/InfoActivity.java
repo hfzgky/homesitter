@@ -1,19 +1,13 @@
 package com.example.homesitter;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
-public class InfoActivity extends AppCompatActivity {
+public class InfoActivity extends EditActivity {
     private SimpleAdapter mSAdapter;
     private TextView txtName;
     private int mISelectedItem = -1;    //인덱스 값 저장, 현재 선택된 항목 없음

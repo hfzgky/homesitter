@@ -50,7 +50,7 @@ import gun0912.tedbottompicker.TedBottomPicker;
 
 
 public class EditActivity<Disposable> extends AppCompatActivity {
-    private EditText mEditName;
+    public EditText mEditName;
 //    private ImageButton mImagePerson;
     private int mItem = -1; //인덱스
     private ImageButton mButton;

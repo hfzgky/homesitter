@@ -6,7 +6,7 @@
             android:defaultValue="true"
             android:key="alert"
             android:title="알림 on/off" />
-    <!--    <ListPreference
+        <ListPreference
             android:dependency="alert"
             android:entries="@array/reply_entries"
             android:entryValues="@array/reply_values"
@@ -14,7 +14,7 @@
             android:defaultValue="8초"
             android:summary="설정한 시간보다 외부인이 오래 머무를 경우 알려드려요."
             android:title="시간 설정" />
-        <EditTextPreference
+   <!--     <EditTextPreference
             android:defaultValue="112"
             android:key="emerNum"
             android:selectAllOnFocus="true"

@@ -39,8 +39,8 @@ public class FriendActivity extends AppCompatActivity {
 
     public void onClickMain(View view) {
         Intent intent = new Intent(this, MainActivity.class);
-        intent.putExtra("item", -1);
-        startActivityForResult(intent, 200);
+        startActivity(intent);
+        finish();
     }
 
     public void onClickClip(View view) {
@@ -186,7 +186,7 @@ public class FriendActivity extends AppCompatActivity {
                 mListData.set(item, hitem); //item 위치에 hitem을 저장
             mSAdapter.notifyDataSetChanged();
 
-        } else
-        Toast.makeText(this, "취소되었습니다.", Toast.LENGTH_LONG).show(); //RESULT_OK가 아닐 경우 Toast창 알림
+        } //else
+       // Toast.makeText(this, "취소되었습니다.", Toast.LENGTH_LONG).show(); //RESULT_OK가 아닐 경우 Toast창 알림
     }
 }

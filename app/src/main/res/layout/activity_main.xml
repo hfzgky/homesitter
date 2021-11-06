@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-<!--    <TableRow
+    <TableRow
         android:id="@+id/tableRow"
         android:layout_width="0dp"
         android:layout_height="270dp"
@@ -23,16 +23,17 @@
             android:orientation="vertical">
 
             <ImageButton
-                android:id="@+id/imageButtonClip"
+                android:id="@+id/imageButtonFriends"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="20dp"
                 android:layout_weight="1"
                 android:background="#00FFFFFF"
-                android:onClick="onClickClip"
+                android:onClick="onClickFriends"
                 android:padding="18dp"
                 android:scaleType="centerInside"
-                app:srcCompat="@drawable/clip" />
+                app:srcCompat="@drawable/list"
+                app:tint="#000000" />
 
             <View
                 android:id="@+id/view6"
@@ -82,17 +83,16 @@
             android:orientation="vertical">
 
             <ImageButton
-                android:id="@+id/imageButtonFriends"
+                android:id="@+id/imageButtonClip"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="20dp"
                 android:layout_weight="1"
                 android:background="#00FFFFFF"
-                android:onClick="onClickFriends"
+                android:onClick="onClickClip"
                 android:padding="18dp"
                 android:scaleType="centerInside"
-                app:srcCompat="@drawable/list"
-                app:tint="#000000" />
+                app:srcCompat="@drawable/clip" />
 
             <View
                 android:id="@+id/view7"
@@ -115,8 +115,8 @@
 
         </LinearLayout>
     </TableRow>
--->
-    <TableRow
+
+<!--    <TableRow
         android:id="@+id/tableRow"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -129,14 +129,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:orientation="vertical">
 
             <ImageButton
                 android:id="@+id/imageButtonCall"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="28dp"
+                android:layout_margin="20dp"
                 android:paddingStart="40dp"
                 android:layout_weight="1"
                 android:background="#00FFFFFF"
@@ -155,7 +155,7 @@
                 android:id="@+id/imageButtonFriends"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="28dp"
+                android:layout_margin="20dp"
                 android:paddingStart="40dp"
                 android:layout_weight="1"
                 android:background="#00FFFFFF"
@@ -163,6 +163,23 @@
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/list"
                 app:tint="#000000" />
+            <View
+                android:id="@+id/view8"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginStart="20dp"
+                android:background="#939393" />
+            <ImageButton
+                android:id="@+id/imageButtonClip"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="20dp"
+                android:paddingStart="40dp"
+                android:layout_weight="1"
+                android:background="#00FFFFFF"
+                android:onClick="onClickFriends"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/clip" />
 
             <View
                 android:id="@+id/view7"
@@ -175,7 +192,7 @@
                 android:id="@+id/imageButtonSettings"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="28dp"
+                android:layout_margin="20dp"
                 android:paddingStart="40dp"
                 android:layout_weight="1"
                 android:background="#00FFFFFF"
@@ -195,13 +212,11 @@
                 android:id="@+id/imageButtonCallz"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginVertical="28dp"
-                android:padding="10dp"
-                android:layout_marginEnd="110dp"
                 android:layout_weight="1"
+                android:paddingVertical="28dp"
+                android:scaleType="fitStart"
                 android:background="#00FFFFFF"
                 android:onClick="onClickCall"
-                android:scaleType="centerInside"
                 app:srcCompat="@drawable/callz" />
 
             <View
@@ -215,13 +230,11 @@
                 android:id="@+id/imageButtonFriendsz"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginVertical="20dp"
-                android:padding="10dp"
-                android:layout_marginEnd="50dp"
                 android:layout_weight="1"
+                android:paddingVertical="28dp"
+                android:scaleType="fitStart"
                 android:background="#00FFFFFF"
                 android:onClick="onClickFriends"
-                android:scaleType="centerInside"
                 app:srcCompat="@drawable/frdz"
                 app:tint="#000000" />
 
@@ -231,22 +244,41 @@
                 android:layout_height="2dp"
                 android:layout_marginEnd="20dp"
                 android:background="#939393" />
+            <ImageButton
+                android:id="@+id/imageButtonClipz"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingBottom="20dp"
+                android:paddingTop="27dp"
+                android:scaleType="fitStart"
+                android:background="#00FFFFFF"
+                android:onClick="onClickFriends"
+                app:srcCompat="@drawable/clipz"
+                app:tint="#000000" />
+
+            <View
+                android:id="@+id/view8z"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginEnd="20dp"
+                android:background="#939393" />
 
             <ImageButton
                 android:id="@+id/imageButtonSettingsz"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginVertical="20dp"
-                android:padding="10dp"
-                android:layout_marginEnd="50dp"
                 android:layout_weight="1"
+                android:paddingBottom="20dp"
+                android:paddingTop="27dp"
+                android:scaleType="fitStart"
                 android:background="#00FFFFFF"
                 android:onClick="onClickPreference"
-                android:scaleType="centerInside"
                 app:srcCompat="@drawable/setz" />
 
         </LinearLayout>
     </TableRow>
+    -->
     <LinearLayout
         android:id="@+id/view_layout"
         android:layout_width="308dp"
@@ -256,8 +288,8 @@
         app:layout_constraintBottom_toTopOf="@+id/videoView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.93">
+        app:layout_constraintTop_toBottomOf="@id/imageView4"
+        app:layout_constraintVertical_bias="0.9">
 
         <TextView
             android:id="@+id/day_view"
@@ -280,7 +312,8 @@
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:text="TextView"
-            android:textAlignment="viewStart" />
+            android:textAlignment="viewStart"
+            tools:ignore="RtlCompat" />
     </LinearLayout>
 
     <VideoView
@@ -292,7 +325,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.309" />
+        app:layout_constraintVertical_bias="0.25" />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -302,7 +335,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintVertical_bias="0.2"
         app:srcCompat="@drawable/appiconnegative" />
 
 

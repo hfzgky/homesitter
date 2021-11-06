@@ -39,6 +39,7 @@ dependencies {
     implementation 'androidx.room:room-runtime:2.4.0-alpha03'
     implementation 'com.google.android.material:material:1.3.0'
     implementation 'com.google.firebase:firebase-analytics' // 파이어베이스 앱 분석
+    implementation 'com.google.firebase:firebase-core:16.0.0'
     implementation 'com.google.firebase:firebase-messaging'
     implementation 'com.google.firebase:firebase-database'
     implementation 'com.google.firebase:firebase-auth' // 파이어베이스 인증
@@ -58,6 +59,6 @@ dependencies {
     implementation 'com.android.support:design:28.0.0'
     implementation 'gun0912.ted:tedbottompicker:2.0.1'
     implementation 'gun0912.ted:tedpermission:2.2.0'
-
+    implementation 'com.kyleduo.switchbutton:library:2.0.0'
 
 }
