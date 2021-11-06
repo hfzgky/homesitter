@@ -95,18 +95,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-      /*  ImageButton btnBack;
-        btnBack = findViewById(R.id.imageButtonFriends);
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });*/
-
         videoView = (VideoView) findViewById(R.id.videoView);
         firebaseDatabase = FirebaseDatabase.getInstance();
-        childreference = firebaseDatabase.getReference().child("cctv/VideoLink/");
+        childreference = firebaseDatabase.getReference().child("cctv/videoLink/real/");
         storage2 = FirebaseStorage.getInstance();
         Handler mHandler = new Handler(new Handler.Callback() {
             @SuppressLint("DefaultLocale")
@@ -181,7 +172,7 @@ public class MainActivity extends AppCompatActivity {
                         target=link[link.length-1];
                         storagelink=target+".mp4";
                         System.out.println("storage link:"+storagelink);
-                        videoRef = storage2.getReferenceFromUrl("gs://homesitter-54d69.appspot.com").child("/cctv/Video/"+storagelink);
+                        videoRef = storage2.getReferenceFromUrl("gs://homesitter-54d69.appspot.com").child("/cctv/video/"+storagelink);
                         downloadVideo(videoRef);
                         try {
                             Thread.sleep(3000);
@@ -255,40 +246,5 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
-
-    public void deleteVideo() {
-        //link에 속한 애들 length-1만큼 돌려서 삭제
-
-        for (delete_count = 0; delete_count < link.length - 1; delete_count++) {
-            storage2.getReferenceFromUrl("gs://homesitter-54d69.appspot.com")
-                    .child("/cctv/Video/" + link[delete_count] + ".h264").delete()
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            // removeValue 말고 setValue(null)도 삭제가능
-                            childreference.child(link[delete_count_link++]).removeValue()
-                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                        @Override
-                                        public void onSuccess(Void aVoid) {
-                                            Log.d(link[delete_count_link2++], "파일,링크 삭제완료");
-
-                                        }
-                                    }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Log.d(link[delete_count_link2++], "링크 삭제실패");
-                                }
-                            });
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Log.d(link[delete_count] + ".h264", "파일,링크 삭제실패");
-                }
-            });
-        }
-    }
-
 }

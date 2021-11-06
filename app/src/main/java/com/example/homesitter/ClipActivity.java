@@ -27,8 +27,8 @@ public class ClipActivity extends AppCompatActivity {
     private Toast toast;
     private ListView mListView;
     private SimpleAdapter mSAdapter;
-    private ArrayList<HashMap<String,String>> mListData; // 여러개의 정보를 저장하기 위해 HashMap 객체 사용
-    private int mISelectedItem = -1;    //인덱스 값 저장, 현재 선택된 항목 없음
+    private ArrayList<HashMap<String,String>> mListData;
+    private int mISelectedItem = -1;
     private ImageButton btnFrd;
 
 
@@ -39,7 +39,7 @@ public class ClipActivity extends AppCompatActivity {
 
 
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-    DatabaseReference childreference = firebaseDatabase.getReference().child("cctv/videoLink/");
+    DatabaseReference childreference = firebaseDatabase.getReference().child("cctv/videoLink/real/");
 
 
     @Override
@@ -74,12 +74,9 @@ public class ClipActivity extends AppCompatActivity {
 
                 for (DataSnapshot messageData : dataSnapshot.getChildren()) {
                     String message = messageData.getKey();
-                    //    String name = (String) messageData.getValue();
-                    //    listdata.add(message);
-                    String datename = message.substring(0,4)+"년 "+message.substring(4,6)+"월 "+message.substring(6,8)+"일 "
-                            +message.substring(8,10)+"시 "+message.substring(10,12)+"분 "+message.substring(12,14)+"초";
+                    String datename = message.substring(0,4)+"-"+message.substring(4,6)+"-"+message.substring(6,8)+"  "
+                            +message.substring(8,10)+":"+message.substring(10,12)+":"+message.substring(12,14);
                     listdata.add(datename);
-                    //    listdata.add(datename + " (" + name + ")");
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -94,19 +91,11 @@ public class ClipActivity extends AppCompatActivity {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
             String temp = (String) adapterView.getItemAtPosition(position);
-            // 2020년 03월 30일 19시 00분 00초
-            String selected_item = temp.substring(0, 4)+temp.substring(6,8)+temp.substring(10,12)
-                    +temp.substring(14,16)+temp.substring(18,20)+temp.substring(22,24);
-
-            //        +temp.substring(26,temp.length()-1);
-
-
-            // String selected_item = (String) adapterView.getItemAtPosition(position);
+            String selected_item = temp.substring(0, 4)+temp.substring(5,7)+temp.substring(8,10)
+                    +temp.substring(12,14)+temp.substring(15,17)+temp.substring(18,20);
             Intent intent10 = new Intent(getApplicationContext(), Video_each.class);
             intent10.putExtra("selected_item", selected_item);
             startActivity(intent10);
-
-
         }
     };
 
@@ -127,27 +116,5 @@ public class ClipActivity extends AppCompatActivity {
         intent.putExtra("item", -1);
         startActivityForResult(intent, 200);
     }
-
-    public void onClickDel(View v) {
-        int count, checked ;
-        count = mSAdapter.getCount() ;
-
-        if(mISelectedItem == -1) {
-            Toast.makeText(getApplicationContext(), "삭제할 항목을 선택해주세요.", Toast.LENGTH_SHORT).show();
-            return; //종료
-        }
-
-        if (count > 0) {
-            // 현재 선택된 아이템의 position 획득.
-            checked = mListView.getCheckedItemPosition();
-
-            if (checked > -1 && checked < count) {
-                mListData.remove(checked) ;  // 아이템 삭제
-                mListView.clearChoices();  // listview 선택 초기화.
-                mSAdapter.notifyDataSetChanged();   // listview 갱신.
-            }
-        }
-    }
-
 }
 

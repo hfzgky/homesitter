@@ -115,8 +115,7 @@
         android:id="@+id/listView1"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="20dp"
-        android:layout_marginHorizontal="10dp"
+        android:layout_margin="10dp"
         android:choiceMode="singleChoice"
         android:divider="#000000"
         android:dividerHeight="1dp"
@@ -124,125 +123,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view2"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="0dp"
-        android:layout_height="38dp"
-        android:layout_margin="20dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/view2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <ImageButton
-            android:id="@+id/imageButtonDel"
-            android:layout_width="36dp"
-            android:layout_height="match_parent"
-            android:background="#00FFFFFF"
-            android:onClick="onClickDel"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/delete" />
-    </LinearLayout>
-
-    <View
-        android:id="@+id/view2"
-        android:layout_width="0dp"
-        android:layout_height="2dp"
-        android:background="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/listView1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
-
-    <!--  <ScrollView
-          android:layout_width="0dp"
-          android:layout_height="0dp"
-          app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toTopOf="parent">
-
-          <LinearLayout
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:orientation="vertical">
-
-              <LinearLayout
-                  android:layout_width="match_parent"
-                  android:layout_height="match_parent"
-                  android:layout_weight="1"
-                  android:orientation="horizontal">
-
-                  <VideoView
-                      android:id="@+id/videoView"
-                      android:layout_width="wrap_content"
-                      android:layout_height="match_parent"
-                      android:layout_margin="5dp"
-                      android:layout_weight="1" />
-
-                  <LinearLayout
-                      android:layout_width="match_parent"
-                      android:layout_height="match_parent"
-                      android:layout_weight="1"
-                      android:orientation="horizontal">
-
-                      <LinearLayout
-                          android:layout_width="match_parent"
-                          android:layout_height="match_parent"
-                          android:layout_weight="1"
-                          android:orientation="vertical">
-
-                          <EditText
-                              android:id="@+id/editTextDate"
-                              android:layout_width="match_parent"
-                              android:layout_height="wrap_content"
-                              android:layout_weight="3"
-                              android:ems="10"
-                              android:inputType="date" />
-
-                          <ImageButton
-                              android:id="@+id/imageButtonPlay"
-                              android:layout_width="match_parent"
-                              android:layout_height="wrap_content"
-                              android:layout_weight="1"
-                              app:srcCompat="@android:drawable/ic_media_play" />
-
-                      </LinearLayout>
-
-                      <LinearLayout
-                          android:layout_width="match_parent"
-                          android:layout_height="match_parent"
-                          android:layout_weight="1"
-                          android:orientation="vertical">
-
-                          <EditText
-                              android:id="@+id/editTextTime"
-                              android:layout_width="match_parent"
-                              android:layout_height="wrap_content"
-                              android:layout_weight="3"
-                              android:ems="10"
-                              android:inputType="time" />
-
-                          <ImageButton
-                              android:id="@+id/imageButtonDel"
-                              android:layout_width="match_parent"
-                              android:layout_height="wrap_content"
-                              android:layout_weight="1"
-                              app:srcCompat="@android:drawable/ic_menu_delete" />
-
-                      </LinearLayout>
-                  </LinearLayout>
-              </LinearLayout>
-          </LinearLayout>
-      </ScrollView> -->
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

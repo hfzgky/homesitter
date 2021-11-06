@@ -64,7 +64,7 @@ public class Video_each extends AppCompatActivity {
         textView= (TextView)findViewById(R.id.textView);
         textView2= (TextView)findViewById(R.id.textView2);
         firebaseDatabase=FirebaseDatabase.getInstance();
-        childreference=firebaseDatabase.getReference().child("cctv/videoLink/");
+        childreference=firebaseDatabase.getReference().child("cctv/videoLink/real/");
         storage2 = FirebaseStorage.getInstance();
 
 
@@ -76,7 +76,7 @@ public class Video_each extends AppCompatActivity {
         //int index_=name.indexOf("(");
         //name_=name.substring(0,index_);
         // textView.setText(name);
-        String datename = name.substring(0,4)+"년 "+name.substring(4,6)+"월 "+name.substring(6,8)+"일 "+name.substring(8,10)+"시 "+name.substring(10,12)+"분 "+name.substring(12,14)+"초";
+        String datename = name.substring(0,4)+"-"+name.substring(4,6)+"-"+name.substring(6,8)+"  "+name.substring(8,10)+":"+name.substring(10,12)+":"+name.substring(12,14);
         textView.setText(datename);
 //        textView2.setText("검출 결과 : "+name.substring(16, name.length()));
 //        System.out.println(name_+"입니다");

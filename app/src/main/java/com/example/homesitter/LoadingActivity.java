@@ -1,11 +1,9 @@
 package com.example.homesitter;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class LoadingActivity extends AppCompatActivity {
 
@@ -18,11 +16,11 @@ public class LoadingActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
-        },1000);
+        }, 1000);
     }
 
     @Override
@@ -30,15 +28,4 @@ public class LoadingActivity extends AppCompatActivity {
         super.onPause();
         finish();
     }
-
-}/*    }
-
-    private void startLoading() {
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                finish();
-            }
-        }, 1000);
-    }       */
+}

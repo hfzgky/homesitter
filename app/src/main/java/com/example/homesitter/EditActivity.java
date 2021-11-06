@@ -21,7 +21,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
@@ -51,17 +50,10 @@ import gun0912.tedbottompicker.TedBottomPicker;
 
 public class EditActivity<Disposable> extends AppCompatActivity {
     public EditText mEditName;
-//    private ImageButton mImagePerson;
     private int mItem = -1; //인덱스
     private ImageButton mButton;
     ImageView btnSave;
-//    ImageButton imagePerson;
-
     private static final String TAG = "MultiImageActivity";
-    ArrayList<Uri> uriList = new ArrayList<>();     // 이미지의 uri를 담을 ArrayList 객체
-    RecyclerView recyclerView;  // 이미지를 보여줄 리사이클러뷰
-    MultiImageAdapter adapter;  // 리사이클러뷰에 적용시킬 어댑터
-
 
     int i=0;
     int j=1;
@@ -262,25 +254,6 @@ public class EditActivity<Disposable> extends AppCompatActivity {
         });
 
             setMultiShowButton();
-
-
-/*            public void onClick(View v) {
-                String sName = mEditName.getText().toString().trim();
-
-                if(sName.isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "이름을 입력해 주세요.", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                Intent intent = new Intent();
-                intent.putExtra("item", mItem);
-                intent.putExtra("name", sName);
-                setResult(RESULT_OK, intent);
-                finish();
-            }
-
- */
-
     }
 
     @SuppressLint("UseCheckPermission")

@@ -25,13 +25,13 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 public class LoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
-    private SignInButton GoogleButton; // 구글 로그인 버튼
-    private FirebaseAuth auth; // 파이어베이스 인증 객체
-    private GoogleApiClient googleApiClient; // 구글 API 클라이언트 객체
-    private static final int REQ_SIGN_GOOGLE = 100; // 구글 로그인 결과 코드
+    private SignInButton GoogleButton;
+    private FirebaseAuth auth;
+    private GoogleApiClient googleApiClient;
+    private static final int REQ_SIGN_GOOGLE = 100;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) { // 앱이 실행될때 처음 수행되는 곳
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
@@ -45,10 +45,10 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 .addApi(Auth.GOOGLE_SIGN_IN_API, googleSignInOptions)
                 .build();
 
-        auth = FirebaseAuth.getInstance(); // 파이어베이스 인증 객체 초기화
+        auth = FirebaseAuth.getInstance();
 
         GoogleButton= findViewById(R.id.GoogleButton);
-        GoogleButton.setOnClickListener(new View.OnClickListener() { // 구글 로그인버튼 클릭했을때 실행
+        GoogleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = Auth.GoogleSignInApi.getSignInIntent(googleApiClient);
@@ -59,14 +59,14 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) { // 구글 로그인 인증을 요청했을때 결과 값을 되돌려 받는 곳
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if(requestCode == REQ_SIGN_GOOGLE) {
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-            if(result.isSuccess()) { // 인증 결과가 성공일경우
+            if(result.isSuccess()) {
                 GoogleSignInAccount account = result.getSignInAccount();
-                resultLogin(account); // 로그인 결과 값 출력 수행하려는 메소드
+                resultLogin(account);
             }
         }
 
@@ -78,12 +78,12 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()) { // 로그인 성공
+                        if(task.isSuccessful()) {
                             Toast.makeText(LoginActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                             startActivity(intent);
                             finish();
-                        } else { // 로그인 실패
+                        } else {
                             Toast.makeText(LoginActivity.this, "로그인 실패", Toast.LENGTH_SHORT).show();
 
                         }
@@ -91,9 +91,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 });
     }
 
-
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-
     }
 }
