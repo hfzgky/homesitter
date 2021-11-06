@@ -121,7 +121,4 @@
 
     </LinearLayout>
 
-    <!--  android:background="@drawable/shape_line_as" -->
-
-
 </RelativeLayout>

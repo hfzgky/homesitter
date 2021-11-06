@@ -50,7 +50,7 @@ import gun0912.tedbottompicker.TedBottomPicker;
 
 public class EditActivity<Disposable> extends AppCompatActivity {
     public EditText mEditName;
-    private int mItem = -1; //인덱스
+    private int mItem = -1;
     private ImageButton mButton;
     ImageView btnSave;
     private static final String TAG = "MultiImageActivity";
@@ -84,7 +84,6 @@ public class EditActivity<Disposable> extends AppCompatActivity {
 
         mButton = findViewById(R.id.buttonGall);
         mEditName = findViewById(R.id.editTextName);
-//        mImagePerson = findViewById(R.id.imagePerson);
 
         FirebaseApp.initializeApp(this);
         mStorageRef = FirebaseStorage.getInstance().getReference();
@@ -94,18 +93,15 @@ public class EditActivity<Disposable> extends AppCompatActivity {
         String name = mEditName.getText().toString();
         formatter = new SimpleDateFormat("yyyyMMdd_HHmmss");
 
-        Intent intent = getIntent();    //intent객체를 가져옴
-        if (intent != null) {    //추가
+        Intent intent = getIntent();
+        if (intent != null) {
             mItem = intent.getIntExtra("item", -1);
 
-            if (mItem != -1) {   //수정
-                //값을 가져와서 보여줌
+            if (mItem != -1) {
                 mEditName.setText(intent.getStringExtra("name"));
             }
         }
 
-        //이미지를 클릭하면 갤러리에서 이미지를 가져옴
-//        imagePerson = findViewById(R.id.imagePerson); // 이미지 객체를 얻어옴
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -117,7 +113,6 @@ public class EditActivity<Disposable> extends AppCompatActivity {
             }
         });
 
-        //취소버튼
         ImageButton btnBack;
         btnBack = findViewById(R.id.buttonBack);
         btnBack.setOnClickListener(new View.OnClickListener() {
@@ -127,7 +122,6 @@ public class EditActivity<Disposable> extends AppCompatActivity {
             }
         });
 
-        //저장버튼
         btnSave = findViewById(R.id.buttonSave);
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -149,7 +143,6 @@ public class EditActivity<Disposable> extends AppCompatActivity {
                     FirebaseStorage storage = FirebaseStorage.getInstance();
                     StorageReference storageRef;
                     storageRef = FirebaseStorage.getInstance().getReference();
-//                    String sName = mEditName.getText().toString();
                     FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
                     DatabaseReference childreference=firebaseDatabase.getReference().child("cctv/PhotoLink/"+name);
                     ValueEventListener valueEventListener = new ValueEventListener() {
@@ -163,7 +156,6 @@ public class EditActivity<Disposable> extends AppCompatActivity {
                                 DownCount=0;
                                 UpdateCount=0;
                                 oneface=0;
-                                //UpdateCount = dataSnapshot.getValue(Integer.class);
                                 System.out.println("UpdateCount:"+UpdateCount);
                                 firebaseDatabase.getReference().child("cctv/PhotoLink/"+name+"/"+"UpdateCount").setValue(UpdateCount+i-1);
                                 firebaseDatabase.getReference().child("cctv/PhotoLink/"+name+"/"+"DownCount").setValue(DownCount);
@@ -185,22 +177,16 @@ public class EditActivity<Disposable> extends AppCompatActivity {
                         Log.d("pics", "" + uri);
                         String filename;
                         String urlname;
-                        //FirebaseStorage storage = FirebaseStorage.getInstance();
-                        //Unique한 파일명을 만들자.
 
                         Date now = new Date();
-                        //filename = formatter.format(now) + "_" + i + ".png";
                         urlname = formatter.format(now) + "_" + i;
 
                         final String imagedata = "cctv/Photo/" + sName + "/" + i + ".png";
                         StorageReference data = storageRef.child(imagedata);
 
-                        //storage 주소와 폴더 파일명을 지정해 준다.
-                        /*storageRef = storage.getReferenceFromUrl("gs://aicctv-8f5ac.appspot.com").child("/00gpwls00/Photo/"+name+"/"+filename);*/
                         storageRef = storage.getReferenceFromUrl("gs://homesitter-54d69.appspot.com").child(imagedata);
 
                         storageRef.putFile(uri)
-                                //성공시
                                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                                     @Override
                                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -220,20 +206,16 @@ public class EditActivity<Disposable> extends AppCompatActivity {
                                     }
 
                                 })
-                                //실패시
                                 .addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
                                         Toast.makeText(getApplicationContext(), "업로드 실패!", Toast.LENGTH_SHORT).show();
                                     }
                                 })
-                                //진행중
                                 .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                                     @Override
                                     public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                                        @SuppressWarnings("VisibleForTests") //
                                         double progress = (100 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
-                                        //dialog에 진행률을 퍼센트로 출력해 준다
                                         progressDialog.setMessage("Uploaded " + ((int) progress) + "% ...");
 
                                     }
@@ -241,7 +223,6 @@ public class EditActivity<Disposable> extends AppCompatActivity {
                         i++;
                     }
                     progressDialog.dismiss();
-
 
                     Intent intent = new Intent();
                     intent.putExtra("item", mItem);
@@ -252,7 +233,6 @@ public class EditActivity<Disposable> extends AppCompatActivity {
                 }
             }
         });
-
             setMultiShowButton();
     }
 
@@ -266,7 +246,6 @@ public class EditActivity<Disposable> extends AppCompatActivity {
                 @Override
                 public void onPermissionGranted() {
                     TedBottomPicker.with(EditActivity.this)
-                            //.setPeekHeight(getResources().getDisplayMetrics().heightPixels/2)
                             .setPeekHeight(1600)
                             .showTitle(false)
                             .setCompleteButtonText("Done")
@@ -276,7 +255,6 @@ public class EditActivity<Disposable> extends AppCompatActivity {
                                 selectedUriList = uriList;
                                 showUriList(selectedUriList);
                             });
-
                 }
 
                 @Override
@@ -334,60 +312,6 @@ public class EditActivity<Disposable> extends AppCompatActivity {
             System.out.println(v.getId());
             index =v.getId();
             Uri first = selectedUriList.get(index);
-            //startCrop(first);
-
         }
     };
-
-
-
-/*    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == 2222) {
-            if(data == null){   // 어떤 이미지도 선택하지 않은 경우
-                Toast.makeText(getApplicationContext(), "이미지를 선택하지 않았습니다.", Toast.LENGTH_LONG).show();
-                //이걸 스낵바로 바꾸고 싶은데... 어케해야돼....개빢쳐
-
-            }
-            else{   // 이미지를 하나라도 선택한 경우
-                if(data.getClipData() == null){     // 이미지를 하나만 선택한 경우
-                    Log.e("single choice: ", String.valueOf(data.getData()));
-                    Uri imageUri = data.getData();
-                    uriList.add(imageUri);
-
-                    adapter = new MultiImageAdapter(uriList, getApplicationContext());
-                    recyclerView.setAdapter(adapter);
-                    recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, true));
-                }
-                else{      // 이미지를 여러장 선택한 경우
-                    ClipData clipData = data.getClipData();
-                    Log.e("clipData", String.valueOf(clipData.getItemCount()));
-
-                    if(clipData.getItemCount() > 11){   // 선택한 이미지가 11장 이상인 경우
-                        Toast.makeText(getApplicationContext(), "사진은 10장까지 선택 가능합니다.", Toast.LENGTH_LONG).show();
-                    }
-                    else {   // 선택한 이미지가 1장 이상 10장 이하인 경우
-                        Log.e(TAG, "multiple choice");
-
-                        for (int i = 0; i < clipData.getItemCount(); i++) {
-                            Uri imageUri = clipData.getItemAt(i).getUri();  // 선택한 이미지들의 uri를 가져온다.
-                            try {
-                                uriList.add(imageUri);  //uri를 list에 담는다.
-
-                            } catch (Exception e) {
-                                Log.e(TAG, "File select error", e);
-                            }
-                        }
-
-                        adapter = new MultiImageAdapter(uriList, getApplicationContext());
-                        recyclerView.setAdapter(adapter);   // 리사이클러뷰에 어댑터 세팅
-                        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, true));     // 리사이클러뷰 수평 스크롤 적용
-                    }
-                }
-            }
-        }
-    }
-
- */
 }

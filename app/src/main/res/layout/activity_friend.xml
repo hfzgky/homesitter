@@ -184,6 +184,4 @@
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/delete" />
     </LinearLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

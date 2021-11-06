@@ -6,8 +6,6 @@
              android:clickable="true"
              android:orientation="vertical"
              android:padding="10dp" >
-
-
     <ImageView
         android:id="@+id/media_image"
         android:layout_width="match_parent"
@@ -17,6 +15,4 @@
         android:visibility="visible"
         android:clickable="true"
         android:focusable="true"/>
-
-
 </FrameLayout>

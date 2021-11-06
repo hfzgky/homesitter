@@ -73,13 +73,8 @@ public class Video_each extends AppCompatActivity {
 
         name = intent.getExtras().getString("selected_item");/*String형*/
 
-        //int index_=name.indexOf("(");
-        //name_=name.substring(0,index_);
-        // textView.setText(name);
         String datename = name.substring(0,4)+"-"+name.substring(4,6)+"-"+name.substring(6,8)+"  "+name.substring(8,10)+":"+name.substring(10,12)+":"+name.substring(12,14);
         textView.setText(datename);
-//        textView2.setText("검출 결과 : "+name.substring(16, name.length()));
-//        System.out.println(name_+"입니다");
         dialog = ProgressDialog.show(this, "영상 가져오기", "로딩 중 입니다.", true, true);
 
         Handler mHandler = new Handler() {
@@ -143,14 +138,10 @@ public class Video_each extends AppCompatActivity {
             @Override
             public void onPrepared(MediaPlayer mp) {
                 dialog.dismiss();
-                // textView.setText(target);
-                // String datename = target.substring(0,4)+"년 "+target.substring(4,6)+"월 "+target.substring(6,8)+"일 "+target.substring(9,11)+"시 "+target.substring(11,13)+"분 "+target.substring(13,15)+"초";
-                // textView.setText(datename);
                 Toast.makeText(com.example.homesitter.Video_each.this,
                         "동영상이 준비되었습니다. 재생을 시작합니다.", Toast.LENGTH_SHORT).show();
                 videoView.seekTo(0);
                 videoView.start();
-                // deleteVideo();
             }
         });
 

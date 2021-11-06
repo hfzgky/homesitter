@@ -187,8 +187,7 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 };
-                childreference.addListenerForSingleValueEvent(valueEventListener); //맨 처음 한번만 호출됨
-
+                childreference.addListenerForSingleValueEvent(valueEventListener);
             }
         });
         th.start();

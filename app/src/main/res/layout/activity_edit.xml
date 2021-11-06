@@ -125,24 +125,7 @@
                 android:gravity="left"
                 android:orientation="horizontal"
                 android:visibility="visible">
-
-                <!-- images will be added dynamicall to this layout -->
             </LinearLayout>
         </HorizontalScrollView>
-
-
-    <!--    <ImageButton
-            android:id="@+id/imagePerson"
-            android:layout_width="230dp"
-            android:layout_height="235dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="50dp"
-            android:background="#00FFFFFF"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/gallery" />-->
-
-
     </LinearLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
