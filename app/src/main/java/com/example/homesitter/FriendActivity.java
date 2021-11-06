@@ -44,6 +44,7 @@ public class FriendActivity extends AppCompatActivity {
     public void onClickClip(View view) {
         Intent intent = new Intent(this, ClipActivity.class);
         startActivity(intent);
+        Toast.makeText(getApplicationContext(), "모니터링을 원하는 시각을 선택해주세요.", Toast.LENGTH_SHORT).show();
         finish();
     }
 
