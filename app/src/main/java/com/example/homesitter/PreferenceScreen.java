@@ -4,6 +4,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 
+import androidx.preference.PreferenceManager;
+
 public class PreferenceScreen extends PreferenceActivity {
     SharedPreferences pref;
 
@@ -12,6 +14,7 @@ public class PreferenceScreen extends PreferenceActivity {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.preferences);
 
+        pref = PreferenceManager.getDefaultSharedPreferences(this);
         Integer emernum = pref.getInt("emernum", 112);
     }
 }
