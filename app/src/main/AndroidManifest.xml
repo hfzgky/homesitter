@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.DIAL_PHONE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -45,6 +46,7 @@
             android:name=".ASActivity"
             android:exported="true" />
         <activity android:name=".EditActivity"/>
+        <activity android:name=".EditActivity2"/>
         <activity android:name=".FriendActivity"/>
         <activity android:name=".ClipActivity"/>
         <activity android:name=".Video_each" />

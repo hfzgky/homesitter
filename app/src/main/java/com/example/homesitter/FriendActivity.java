@@ -4,27 +4,69 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.gun0912.tedpermission.util.ObjectUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class FriendActivity extends AppCompatActivity {
-    private ListView mListView;
-    private SimpleAdapter mSAdapter;
-    private ArrayList<HashMap<String,String>> mListData;
+    /*    private ListView mListView;
+        private SimpleAdapter mSAdapter;
+        private ArrayList<HashMap<String,String>> mListData;
+        private int mISelectedItem = -1;
+        private long backKeyPressedTime = 0;
+        private Toast toast;
+     */
     private int mISelectedItem = -1;
-    private long backKeyPressedTime = 0;
     private Toast toast;
+    private long backKeyPressedTime = 0;
+    private ListView list;
+    static ArrayList<String> listdata;
+    ArrayAdapter<String> adapter;
+
+    public ArrayList<String> getList() {
+        return listdata;
+    }
+
+    public int getPosition() {
+        return selectedPosition;
+    }
+
+    Button deleteButton;
+    private int selectedPosition;
+
+    FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+    DatabaseReference childreference = firebaseDatabase.getReference().child("cctv/PhotoLink/realname/");
+
+    DatabaseReference childreference10 = firebaseDatabase.getReference().child("cctv/PhotoLink/realname");
+    DatabaseReference childreference100 = firebaseDatabase.getReference().child("cctv/PhotoLink/name");
+    FirebaseStorage storage = FirebaseStorage.getInstance();
+    StorageReference storageRef = storage.getReference().child("cctv/Photo/");
+
 
     @Override
     public void onBackPressed() {
-        if (System.currentTimeMillis()>backKeyPressedTime + 2500){
+        if (System.currentTimeMillis() > backKeyPressedTime + 2500) {
             backKeyPressedTime = System.currentTimeMillis();
             toast = Toast.makeText(this, "뒤로 가기 버튼을 한 번 더 누르면 종료됩니다.", Toast.LENGTH_LONG);
             toast.show();
@@ -44,6 +86,7 @@ public class FriendActivity extends AppCompatActivity {
     public void onClickClip(View view) {
         Intent intent = new Intent(this, ClipActivity.class);
         startActivity(intent);
+        Toast.makeText(getApplicationContext(), "모니터링을 원하는 시각을 선택해주세요.", Toast.LENGTH_SHORT).show();
         finish();
     }
 
@@ -60,33 +103,70 @@ public class FriendActivity extends AppCompatActivity {
     }
 
     public void onClickEdit(View v) {
-        if(mISelectedItem == -1) {
+        if (mISelectedItem == -1) {
             Toast.makeText(getApplicationContext(), "수정할 항목을 선택해주세요.", Toast.LENGTH_SHORT).show();
             return;
         }
-        HashMap<String,String> item = ((HashMap<String,String>)mSAdapter.getItem(mISelectedItem));
-        Intent intent = new Intent(FriendActivity.this, EditActivity.class);
-        intent.putExtra("name", item.get("name"));
-        intent.putExtra("item", mISelectedItem);
-        startActivityForResult(intent, 200);
+        String item = adapter.getItem(mISelectedItem);
+        Intent intent = new Intent(FriendActivity.this, EditActivity2.class);
+        intent.putExtra("name", item);
+        startActivity(intent);
+       // intent.putExtra("item", mISelectedItem);
+       // startActivityForResult(intent, 200);
     }
 
     public void onClickDel(View v) {
-        int count, checked ;
-        count = mSAdapter.getCount() ;
+        int count, checked;
+        count = adapter.getCount();
 
-        if(mISelectedItem == -1) {
+        if (mISelectedItem == -1) {
             Toast.makeText(getApplicationContext(), "삭제할 항목을 선택해주세요.", Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (count > 0) {
-            checked = mListView.getCheckedItemPosition();
+            checked = list.getCheckedItemPosition();
 
             if (checked > -1 && checked < count) {
-                mListData.remove(checked) ;
-                mListView.clearChoices();
-                mSAdapter.notifyDataSetChanged();
+
+                String origin = listdata.get(mISelectedItem);
+
+
+                //선택되어 있는 항목 storage에서 모든 사진 제거
+                childreference10.child(origin).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for (DataSnapshot messageData : dataSnapshot.getChildren()) {
+                            String key = messageData.getKey() + ".png";
+
+                            //String file = String.valueOf(messageData.child("name").getValue()+".png");
+                            storageRef.child(origin).child(key).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Toast.makeText(FriendActivity.this, "선택 인물 삭제", Toast.LENGTH_LONG).show();
+                                }
+                            });
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {            }
+                });
+
+
+
+                //선택되어 있는 항목 db에서 제거
+                childreference100.child(origin).removeValue();
+                childreference10.child(origin).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {                    }
+                });
+
+               // finish();
+
+
+                listdata.remove(checked);
+                list.clearChoices();
+                adapter.notifyDataSetChanged();
             }
         }
     }
@@ -96,38 +176,47 @@ public class FriendActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friend);
 
-        mListData = new ArrayList<>();
-        mSAdapter = new SimpleAdapter(this, mListData, R.layout.list_item,
-                new String[] {"name"}, new int[] {R.id.text1});
-        mListView = findViewById(R.id.listView);
-        mListView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-        mListView.setAdapter(mSAdapter);
 
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        list = (ListView) findViewById(R.id.listView);
+        listdata = new ArrayList<>();
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listdata);
+        list.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                mISelectedItem = i;
-                HashMap<String,String> item = (HashMap<String, String>) mSAdapter.getItem(i);
+                mISelectedItem=i;
+                String selected_item = (String) adapter.getItem(i);
+               /* Intent intent7 = new Intent(getApplicationContext(), EditActivity.class);
+                intent7.putExtra("selected_item", selected_item);
+                startActivity(intent7);
+*/            }
+        });
+
+        childreference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                adapter.clear();
+
+                for (DataSnapshot messageData : dataSnapshot.getChildren()) {
+
+                    String msg2 = messageData.getKey();
+                    adapter.add(msg2);
+                }
+                adapter.notifyDataSetChanged();
+                list.setSelection(adapter.getCount() - 1);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode != 200)
-            return;
-        if(resultCode == RESULT_OK) {
-            int item = data.getIntExtra("item", -1);
-
-            HashMap<String,String> hitem = new HashMap<>();
-            hitem.put("name", data.getStringExtra("name"));
-            if(item == -1)
-                mListData.add(hitem);
-            else
-                mListData.set(item, hitem);
-            mSAdapter.notifyDataSetChanged();
-        }
     }
 }

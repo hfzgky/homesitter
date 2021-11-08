@@ -3,6 +3,7 @@ package com.example.homesitter;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.Person;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
@@ -13,6 +14,7 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
@@ -73,8 +75,17 @@ public class EditActivity<Disposable> extends AppCompatActivity {
     int DownCount,oneface;
     SimpleDateFormat formatter;
     private final String SAMPLE_CROPPED_IMAGE_NAME = "sample_image";
+    private Button buttonDel;
 
+    FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+    DatabaseReference childreference10 = firebaseDatabase.getReference().child("cctv/PhotoLink/realname");
+    DatabaseReference childreference100 = firebaseDatabase.getReference().child("cctv/PhotoLink/name");
+    FirebaseStorage storage = FirebaseStorage.getInstance();
+    StorageReference storageRef = storage.getReference().child("cctv/Photo/");
 
+    FriendActivity friend = new FriendActivity();
+    private ArrayList<String> listlist = friend.getList();
+    int selectedPosition2 = friend.getPosition();
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -84,6 +95,7 @@ public class EditActivity<Disposable> extends AppCompatActivity {
 
         mButton = findViewById(R.id.buttonGall);
         mEditName = findViewById(R.id.editTextName);
+      //  buttonDel = findViewById(R.id.buttonDel);
 
         FirebaseApp.initializeApp(this);
         mStorageRef = FirebaseStorage.getInstance().getReference();
@@ -93,6 +105,7 @@ public class EditActivity<Disposable> extends AppCompatActivity {
         String name = mEditName.getText().toString();
         formatter = new SimpleDateFormat("yyyyMMdd_HHmmss");
 
+
         Intent intent = getIntent();
         if (intent != null) {
             mItem = intent.getIntExtra("item", -1);
@@ -101,6 +114,49 @@ public class EditActivity<Disposable> extends AppCompatActivity {
                 mEditName.setText(intent.getStringExtra("name"));
             }
         }
+
+
+     /*   buttonDel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String origin=listlist.get(selectedPosition2);
+
+                //선택되어 있는 항목 storage에서 모든 사진 제거
+                childreference10.child(origin).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for (DataSnapshot messageData : dataSnapshot.getChildren()) {
+                            String key = messageData.getKey() + ".png";
+
+                            //String file = String.valueOf(messageData.child("name").getValue()+".png");
+                            storageRef.child(origin).child(key).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Toast.makeText(EditActivity.this, "선택 인물 삭제", Toast.LENGTH_LONG).show();
+                                }
+                            });
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {            }
+                });
+
+                //선택되어 있는 항목 db에서 제거
+                childreference100.child(origin).removeValue();
+                childreference10.child(origin).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {                    }
+                });
+
+                finish();
+
+            }
+
+
+        });
+
+      */
+
 
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -144,22 +200,23 @@ public class EditActivity<Disposable> extends AppCompatActivity {
                     StorageReference storageRef;
                     storageRef = FirebaseStorage.getInstance().getReference();
                     FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
-                    DatabaseReference childreference=firebaseDatabase.getReference().child("cctv/PhotoLink/"+name);
+                    DatabaseReference childreference=firebaseDatabase.getReference().child("cctv/PhotoLink/name/"+sName);
                     ValueEventListener valueEventListener = new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                             if(dataSnapshot.child("UpdateCount").getValue()!=null) {
                                 UpdateCount = dataSnapshot.child("UpdateCount").getValue(Integer.class);
-                                firebaseDatabase.getReference().child("cctv/PhotoLink/" + name + "/" + "UpdateCount").setValue(UpdateCount + i - 1);
+                                firebaseDatabase.getReference().child("cctv/PhotoLink/name/" + sName + "/" + "UpdateCount").setValue(UpdateCount + i - 1);
+                                firebaseDatabase.getReference().child("cctv/PhotoLink/realname/"+sName).setValue(UpdateCount + i - 1);
                             }else{
                                 DownCount=0;
                                 UpdateCount=0;
                                 oneface=0;
                                 System.out.println("UpdateCount:"+UpdateCount);
-                                firebaseDatabase.getReference().child("cctv/PhotoLink/"+name+"/"+"UpdateCount").setValue(UpdateCount+i-1);
-                                firebaseDatabase.getReference().child("cctv/PhotoLink/"+name+"/"+"DownCount").setValue(DownCount);
-                                firebaseDatabase.getReference().child("cctv/PhotoLink/"+name+"/"+"oneface").setValue(oneface);
+                                firebaseDatabase.getReference().child("cctv/PhotoLink/name/"+sName+"/"+"UpdateCount").setValue(UpdateCount+i-1);
+                                firebaseDatabase.getReference().child("cctv/PhotoLink/name/"+sName+"/"+"DownCount").setValue(DownCount);
+                                firebaseDatabase.getReference().child("cctv/PhotoLink/name/"+sName+"/"+"oneface").setValue(oneface);
 
                             }
                         }
@@ -181,7 +238,7 @@ public class EditActivity<Disposable> extends AppCompatActivity {
                         Date now = new Date();
                         urlname = formatter.format(now) + "_" + i;
 
-                        final String imagedata = "cctv/Photo/" + sName + "/" + i + ".png";
+                        final String imagedata = "/cctv/Photo/" + sName + "/" + i + ".png";
                         StorageReference data = storageRef.child(imagedata);
 
                         storageRef = storage.getReferenceFromUrl("gs://homesitter-54d69.appspot.com").child(imagedata);
@@ -198,7 +255,9 @@ public class EditActivity<Disposable> extends AppCompatActivity {
                                             public void onSuccess(Uri uri) {
                                                 Log.d("★★★★★★★★11111", uri.toString());
                                                 String imgurl=uri.toString();
-                                                firebaseDatabase.getReference().child("/cctv/PhotoLink/"+name+"/"+urlname).setValue(imgurl);
+                                               // firebaseDatabase.getReference().child("/cctv/PhotoLink/name/"+sName+"/"+urlname).setValue(imgurl);
+                                                firebaseDatabase.getReference().child("/cctv/PhotoLink/name/"+sName+"/"+urlname).setValue(imgurl);
+                                                firebaseDatabase.getReference().child("/cctv/PhotoLink/realname/"+sName).setValue(imgurl);
 
                                             }
                                         }).toString();
