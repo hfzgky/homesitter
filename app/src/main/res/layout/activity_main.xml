@@ -26,14 +26,13 @@
                 android:id="@+id/imageButtonFriends"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="20dp"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="#00FFFFFF"
                 android:onClick="onClickFriends"
                 android:padding="18dp"
                 android:scaleType="centerInside"
-                app:srcCompat="@drawable/list"
-                app:tint="#000000" />
+                app:srcCompat="@drawable/friends"/>
 
             <View
                 android:id="@+id/view6"
@@ -46,7 +45,7 @@
                 android:id="@+id/imageButtonCall"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="20dp"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="#00FFFFFF"
                 android:onClick="onClickCall"
@@ -86,7 +85,7 @@
                 android:id="@+id/imageButtonClip"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="20dp"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="#00FFFFFF"
                 android:onClick="onClickClip"
@@ -105,7 +104,7 @@
                 android:id="@+id/imageButtonSettings"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="20dp"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="#00FFFFFF"
                 android:onClick="onClickPreference"
