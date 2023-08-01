@@ -44,6 +44,8 @@ public class FriendActivity extends AppCompatActivity {
     static ArrayList<String> listdata;
     ArrayAdapter<String> adapter;
 
+    private int mISelectedID = 0;
+
     public ArrayList<String> getList() {
         return listdata;
     }
@@ -56,7 +58,7 @@ public class FriendActivity extends AppCompatActivity {
     private int selectedPosition;
 
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-    DatabaseReference childreference = firebaseDatabase.getReference().child("cctv/PhotoLink/realname/");
+   // DatabaseReference childreference = firebaseDatabase.getReference().child("cctv/PhotoLink/realname/");
 
     DatabaseReference childreference10 = firebaseDatabase.getReference().child("cctv/PhotoLink/realname");
     DatabaseReference childreference100 = firebaseDatabase.getReference().child("cctv/PhotoLink/name");
@@ -107,9 +109,11 @@ public class FriendActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "수정할 항목을 선택해주세요.", Toast.LENGTH_SHORT).show();
             return;
         }
-        String item = adapter.getItem(mISelectedItem);
+        String name = adapter.getItem(mISelectedItem);
         Intent intent = new Intent(FriendActivity.this, EditActivity2.class);
-        intent.putExtra("name", item);
+        intent.putExtra("name", name);
+        intent.putExtra("id",mISelectedID);
+     //   intent.putExtra("item", mISelectedItem);
         startActivity(intent);
        // intent.putExtra("item", mISelectedItem);
        // startActivityForResult(intent, 200);
@@ -133,7 +137,7 @@ public class FriendActivity extends AppCompatActivity {
 
 
                 //선택되어 있는 항목 storage에서 모든 사진 제거
-                childreference10.child(origin).addListenerForSingleValueEvent(new ValueEventListener() {
+          /*      childreference10.child(origin).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for (DataSnapshot messageData : dataSnapshot.getChildren()) {
@@ -152,7 +156,14 @@ public class FriendActivity extends AppCompatActivity {
                     public void onCancelled(@NonNull DatabaseError databaseError) {            }
                 });
 
+           */
 
+
+                for(int i = 1; i < 50; i++) {
+                    // "cctv/Photo/각각의 폴더/~.png"에서 각각의 폴더에 몇 개의 사진이 있는지 몰라서 임의로 50까지 설정함.
+                        // -> 이 값을 어떻게 얻어오지?
+                    storageRef.child(origin + "/" + i + ".png").delete();
+                }
 
                 //선택되어 있는 항목 db에서 제거
                 childreference100.child(origin).removeValue();
@@ -194,7 +205,7 @@ public class FriendActivity extends AppCompatActivity {
 */            }
         });
 
-        childreference.addValueEventListener(new ValueEventListener() {
+        childreference10.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 adapter.clear();

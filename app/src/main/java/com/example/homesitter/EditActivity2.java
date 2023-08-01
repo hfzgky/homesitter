@@ -3,7 +3,6 @@ package com.example.homesitter;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.Person;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
@@ -50,12 +49,13 @@ import java.util.List;
 import gun0912.tedbottompicker.TedBottomPicker;
 
 
-public class EditActivity<Disposable> extends AppCompatActivity {
+public class EditActivity2<Disposable> extends AppCompatActivity {
     public EditText mEditName;
     private int mItem = -1;
     private ImageButton mButton;
     ImageView btnSave;
     private static final String TAG = "MultiImageActivity";
+    private int mISelectedID = 0;
 
     int i=0;
     int j=1;
@@ -81,11 +81,7 @@ public class EditActivity<Disposable> extends AppCompatActivity {
     DatabaseReference childreference10 = firebaseDatabase.getReference().child("cctv/PhotoLink/realname");
     DatabaseReference childreference100 = firebaseDatabase.getReference().child("cctv/PhotoLink/name");
     FirebaseStorage storage = FirebaseStorage.getInstance();
-    StorageReference storageRef = storage.getReference().child("cctv/Photo/");
-
-    FriendActivity friend = new FriendActivity();
-    private ArrayList<String> listlist = friend.getList();
-    int selectedPosition2 = friend.getPosition();
+    StorageReference storageRefe = storage.getReference().child("cctv/Photo/");
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -95,7 +91,6 @@ public class EditActivity<Disposable> extends AppCompatActivity {
 
         mButton = findViewById(R.id.buttonGall);
         mEditName = findViewById(R.id.editTextName);
-      //  buttonDel = findViewById(R.id.buttonDel);
 
         FirebaseApp.initializeApp(this);
         mStorageRef = FirebaseStorage.getInstance().getReference();
@@ -104,16 +99,13 @@ public class EditActivity<Disposable> extends AppCompatActivity {
         requestManager = Glide.with(this);
         String name = mEditName.getText().toString();
         formatter = new SimpleDateFormat("yyyyMMdd_HHmmss");
-
-
+      //  String origin=listlist.get(selectedPosition2);
         Intent intent = getIntent();
-        if (intent != null) {
-            mItem = intent.getIntExtra("item", -1);
 
-            if (mItem != -1) {
-                mEditName.setText(intent.getStringExtra("name"));
-            }
-        }
+      //  mItem = intent.getIntExtra("item", -1);
+        mISelectedID = intent.getIntExtra("id", 0);
+        String rname = intent.getExtras().getString("name");/*String형*/
+        mEditName.setText(rname);
 
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,21 +134,25 @@ public class EditActivity<Disposable> extends AppCompatActivity {
                 String sName = mEditName.getText().toString();
                 if(sName.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "이름을 입력해주세요", Toast.LENGTH_SHORT).show();
-                    finish();
+                    return;
                 }
                 if(selectedUriList.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "사진을 선택해주세요", Toast.LENGTH_SHORT).show();
-                    finish();
+                    return;
                 }
 
                 if (selectedUriList!= null&&mEditName!=null) {
-                    final ProgressDialog progressDialog = new ProgressDialog(EditActivity.this);
+                    final ProgressDialog progressDialog = new ProgressDialog(EditActivity2.this);
                     progressDialog.setTitle("업로드 중");
                     progressDialog.show();
                     FirebaseStorage storage = FirebaseStorage.getInstance();
                     StorageReference storageRef;
                     storageRef = FirebaseStorage.getInstance().getReference();
                     FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
+
+                    childreference100.child(rname).removeValue();
+                    childreference10.child(rname).removeValue();
+
                     DatabaseReference childreference=firebaseDatabase.getReference().child("cctv/PhotoLink/name/"+sName);
                     ValueEventListener valueEventListener = new ValueEventListener() {
                         @Override
@@ -164,6 +160,7 @@ public class EditActivity<Disposable> extends AppCompatActivity {
 
                             if(dataSnapshot.child("UpdateCount").getValue()!=null) {
                                 UpdateCount = dataSnapshot.child("UpdateCount").getValue(Integer.class);
+
                                 firebaseDatabase.getReference().child("cctv/PhotoLink/name/" + sName + "/" + "UpdateCount").setValue(UpdateCount + i - 1);
                                 firebaseDatabase.getReference().child("cctv/PhotoLink/realname/"+sName).setValue(UpdateCount + i - 1);
                             }else{
@@ -241,10 +238,16 @@ public class EditActivity<Disposable> extends AppCompatActivity {
                     progressDialog.dismiss();
 
                     Intent intent = new Intent();
-                    intent.putExtra("item", mItem);
                     intent.putExtra("name", sName);
                     setResult(RESULT_OK, intent);
                     finish();
+
+
+                    for(int i = 1; i < 50; i++) {
+                        // "cctv/Photo/각각의 폴더/~.png"에서 각각의 폴더에 몇 개의 사진이 있는지 몰라서 임의로 50까지 설정함.
+                        // -> 이 값을 어떻게 얻어오지?
+                        storageRefe.child(rname + "/" + i + ".png").delete();
+                    }
 
                 }
             }
@@ -261,7 +264,7 @@ public class EditActivity<Disposable> extends AppCompatActivity {
             PermissionListener permissionlistener = new PermissionListener() {
                 @Override
                 public void onPermissionGranted() {
-                    TedBottomPicker.with(EditActivity.this)
+                    TedBottomPicker.with(EditActivity2.this)
                             .setPeekHeight(1600)
                             .showTitle(false)
                             .setCompleteButtonText("Done")
@@ -275,7 +278,7 @@ public class EditActivity<Disposable> extends AppCompatActivity {
 
                 @Override
                 public void onPermissionDenied(ArrayList<String> deniedPermissions) {
-                    Toast.makeText(EditActivity.this, "Permission Denied\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditActivity2.this, "Permission Denied\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
                 }
             };
             checkPermission(permissionlistener);
@@ -283,7 +286,7 @@ public class EditActivity<Disposable> extends AppCompatActivity {
     }
 
     private void checkPermission(PermissionListener permissionlistener) {
-        TedPermission.with(EditActivity.this)
+        TedPermission.with(EditActivity2.this)
                 .setPermissionListener(permissionlistener)
                 .setDeniedMessage("If you reject permission,you can not use this service\n\nPlease turn on permissions at [Setting] > [Permission]")
                 .setPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE)
